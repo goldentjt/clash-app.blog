@@ -13,7 +13,7 @@
           Clash 机场服务选型与横评对比：28家多维横评与避坑指南
         </div>
         <p class="text-xs text-[#79553D] leading-relaxed">
-          Clash 客户端必须配合优质节点订阅（YAML 格式）才能稳定访问海外网络。本页依据公开套餐、协议规范与实机核查，按需对比，帮您找到网络稳定、预算匹配的节点方案。
+          Clash 客户端需导入 YAML 节点订阅。本页基于公开套餐与技术核验，按需对比 28 家服务商，助您快速选型。
         </p>
       </div>
 
@@ -21,7 +21,7 @@
       <div class="p-3 rounded-custom bg-[#F4ECE1] border-l-4 border-[#79553D] text-[11px] text-[#493A30] space-y-1">
         <div class="font-bold text-[#79553D]">📢 商业模式与赞助透明度披露</div>
         <p class="text-[#79553D] leading-relaxed">
-          本页面提供的外部注册入口包含推广代码（Affiliate Links）。通过本站链接注册并填入优惠码可获立减折扣，本站亦获得少额返利以维持服务器与教程维护支出。评测遵循客观事实与网络逻辑，不因商业关系隐瞒任何已确认的限制或缺陷。
+          外部入口包含推广返利以维持站点维护，结算填专属码享立减。评测遵循客观事实，绝不因商业合作隐瞒任何限制。
         </p>
       </div>
     </div>
@@ -31,21 +31,21 @@
       <h2 class="text-base sm:text-lg font-bold text-[#493A30] border-b border-[#E4D8C7] pb-1">
         一、比较对象纳入依据与场景决策树
       </h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 text-xs sm:text-sm">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-3 text-xs sm:text-sm">
         <div class="p-3 rounded-custom bg-[#FFFCF5] border border-[#E4D8C7] space-y-1">
-          <div class="font-bold text-[#79553D]">🔍 偶尔查资料 / 轻度学术</div>
-          <p class="text-xs text-[#79553D] leading-relaxed">月耗 &lt; 50GB。首推 7-15 元入门小包（如飞猫云、快狸），花极少成本保活。</p>
+          <div class="font-bold text-[#79553D] whitespace-nowrap">🔍 偶尔查资料 / 轻度学术</div>
+          <p class="text-xs text-[#79553D] leading-relaxed">月耗 &lt; 50GB。首推 7-15 元入门小包（如飞猫云、快狸），极低成本保活。</p>
         </div>
         <div class="p-3 rounded-custom bg-[#FFFCF5] border border-[#E4D8C7] space-y-1">
-          <div class="font-bold text-[#79553D]">🎬 4K/8K 影音 / 高清追剧</div>
+          <div class="font-bold text-[#79553D] whitespace-nowrap">🎬 4K/8K 影音 / 高清追剧</div>
           <p class="text-xs text-[#79553D] leading-relaxed">月耗 200GB+。首推大带宽中转或专线（如暮光加速、大佬云），晚高峰抗抖动。</p>
         </div>
         <div class="p-3 rounded-custom bg-[#FFFCF5] border border-[#E4D8C7] space-y-1">
-          <div class="font-bold text-[#79553D]">🤖 跨境运营 / AI商务协作</div>
+          <div class="font-bold text-[#79553D] whitespace-nowrap">🤖 跨境运营 / AI商务协作</div>
           <p class="text-xs text-[#79553D] leading-relaxed">TikTok、ChatGPT 4o、Claude。首推全球云多国矩阵或微风网络智能隧道。</p>
         </div>
         <div class="p-3 rounded-custom bg-[#FFFCF5] border border-[#E4D8C7] space-y-1">
-          <div class="font-bold text-[#79553D]">📦 长期备用 / 拒绝月度清零</div>
+          <div class="font-bold text-[#79553D] whitespace-nowrap">📦 长期备用 / 拒绝月度清零</div>
           <p class="text-xs text-[#79553D] leading-relaxed">平时用量少，用时需大流量。首推不限时按量包（如全球云一次性包、梯子云）。</p>
         </div>
       </div>
@@ -56,27 +56,27 @@
       <div class="p-4 sm:p-5 rounded-custom bg-[#FFFDF9] border-2 border-[#79553D] shadow-warm space-y-3">
         <div class="flex flex-wrap items-center justify-between gap-2 border-b border-[#E4D8C7] pb-2.5">
           <div class="flex items-center gap-2">
-            <span class="px-2.5 py-0.5 rounded text-xs font-bold bg-[#79553D] text-white">
+            <span class="px-2.5 py-0.5 rounded text-xs font-bold bg-[#79553D] text-white whitespace-nowrap">
               🌟 本站主推 · 推广合作
             </span>
-            <span class="text-base sm:text-lg font-extrabold text-[#493A30]">全球云 (Global Cloud)</span>
+            <span class="text-base sm:text-lg font-extrabold text-[#493A30] whitespace-nowrap">全球云 (Global Cloud)</span>
           </div>
-          <div class="text-xs sm:text-sm text-[#79553D]">
-            专属8折优惠码：<code class="bg-[#EBDCCB] px-2 py-0.5 rounded font-mono font-bold text-[#493A30] text-xs sm:text-sm">qq88</code>
+          <div class="text-xs sm:text-sm text-[#79553D] whitespace-nowrap">
+            专属8折优惠码：<code class="bg-[#EBDCCB] px-2 py-0.5 rounded font-mono font-bold text-[#493A30] text-xs sm:text-sm whitespace-nowrap">qq88</code>
           </div>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-xs sm:text-sm">
           <div class="p-2.5 rounded bg-[#F9F5EC] border border-[#E4D8C7] space-y-1">
-            <div class="font-bold text-[#79553D]">真实资费架构</div>
-            <p class="text-xs text-[#493A30] leading-relaxed">轻量版 20元/月(折后16元·120G)；进阶版 40元/月(折后32元·300G)；尊享大户 180元/月(1500G)；轻量年付 99元起；独享专线 680元/月。</p>
+            <div class="font-bold text-[#79553D] whitespace-nowrap">真实资费架构</div>
+            <p class="text-xs text-[#493A30] leading-relaxed">轻量 20元/月(折后16元·120G)；进阶 40元/月(折后32元·300G)；尊享 180元/月(1500G)；年付 99元起；专线 680元/月。</p>
           </div>
           <div class="p-2.5 rounded bg-[#F9F5EC] border border-[#E4D8C7] space-y-1">
-            <div class="font-bold text-[#79553D]">线路架构与协议格式</div>
-            <p class="text-xs text-[#493A30] leading-relaxed">港/日/美/新/英/德多国出口矩阵，BGP智能中转优化；支持 Shadowsocks/Trojan 协议，一键导出 Clash YAML 订阅。</p>
+            <div class="font-bold text-[#79553D] whitespace-nowrap">线路架构与协议格式</div>
+            <p class="text-xs text-[#493A30] leading-relaxed">港/日/美/新/英/德出口矩阵，BGP智能中转优化；支持 SS/Trojan 协议，一键导出 Clash YAML 订阅。</p>
           </div>
           <div class="p-2.5 rounded bg-[#F9F5EC] border border-[#E4D8C7] space-y-1">
-            <div class="font-bold text-[#79553D]">核心业务定位</div>
+            <div class="font-bold text-[#79553D] whitespace-nowrap">核心业务定位</div>
             <p class="text-xs text-[#493A30] leading-relaxed">跨境电商后台、TikTok海外运营、ChatGPT/Claude多国IP调度；提供在线客服与工单快速支持。</p>
           </div>
         </div>
@@ -86,14 +86,14 @@
             透明提示：商业推广合作项目，资费真实核验，建议新手先选月付测试。
           </div>
           <div class="flex items-center gap-2">
-            <NuxtLink to="/airport/quanqiuyun" class="text-xs sm:text-sm text-[#79553D] hover:underline font-bold">
+            <NuxtLink to="/airport/quanqiuyun" class="text-xs sm:text-sm text-[#79553D] hover:underline font-bold whitespace-nowrap">
               查看全球云独立评测 →
             </NuxtLink>
             <a
               href="https://hueue09.gcvipaff.com/#/?code=z8U9aaa4"
               target="_blank"
               rel="sponsored nofollow noopener"
-              class="px-3.5 py-1.5 rounded bg-[#79553D] hover:bg-[#5C3E2A] text-white text-xs sm:text-sm font-bold transition-colors shadow-xs"
+              class="px-3.5 py-1.5 rounded bg-[#79553D] hover:bg-[#5C3E2A] text-white text-xs sm:text-sm font-bold transition-colors shadow-xs whitespace-nowrap"
             >
               ⚡️ 直达全球云官网 (享8折) →
             </a>
@@ -108,44 +108,52 @@
         <h2 class="text-base sm:text-lg font-bold text-[#493A30]">
           二、五大主力机场差异化定位与直达通道
         </h2>
-        <span class="text-xs text-[#79553D]">各具特色 · 避免盲目选型</span>
+        <span class="text-xs text-[#79553D] whitespace-nowrap">各具特色 · 避免盲目选型</span>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2.5 text-xs sm:text-sm">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 text-xs sm:text-sm">
         <div
           v-for="item in top5Airports"
           :key="item.id"
-          class="p-3 rounded-custom bg-[#FFFCF5] border-2 border-[#79553D] flex flex-col justify-between shadow-xs transition-all"
+          class="p-3.5 rounded-custom bg-[#FFFCF5] border-2 border-[#79553D] flex flex-col justify-between shadow-xs transition-all hover:shadow-sm"
           :class="item.id === 'quanqiuyun' ? 'ring-2 ring-[#79553D]/40' : ''"
         >
-          <div class="space-y-1.5">
-            <div class="flex items-center justify-between">
-              <span class="text-xs font-mono font-bold px-1.5 py-0.5 rounded bg-[#79553D] text-white">0{{ item.num }} 主力</span>
-              <span class="text-xs font-bold text-[#B08758]">{{ item.tag }}</span>
+          <div class="space-y-2">
+            <div class="flex items-center justify-between gap-2">
+              <span class="text-xs font-mono font-bold px-2 py-0.5 rounded bg-[#79553D] text-white whitespace-nowrap">
+                主力 {{ item.num }}
+              </span>
+              <span class="text-xs font-bold text-[#B08758] whitespace-nowrap">{{ item.tag }}</span>
             </div>
-            <h3 class="text-sm sm:text-base font-extrabold text-[#493A30]">
+            <h3 class="text-base font-extrabold text-[#493A30] whitespace-nowrap">
               <NuxtLink :to="`/airport/${item.id}`" class="hover:underline">
                 {{ item.name }}
               </NuxtLink>
             </h3>
-            <div class="bg-[#F9F5EC] p-1.5 rounded border border-[#E4D8C7] text-xs space-y-0.5">
-              <div class="flex justify-between items-center"><span>真实起价:</span><strong class="text-[#79553D] font-mono font-bold">{{ item.minPrice }}</strong></div>
-              <div class="flex justify-between items-center"><span>专属码:</span><code class="bg-[#EBDCCB] px-1.5 py-0.5 rounded font-bold text-[#493A30] font-mono">{{ item.promoCode }}</code></div>
+            <div class="bg-[#F9F5EC] p-2 rounded border border-[#E4D8C7] text-xs space-y-1">
+              <div class="flex justify-between items-center whitespace-nowrap gap-1">
+                <span class="text-[#79553D] font-medium whitespace-nowrap">真实起价:</span>
+                <strong class="text-[#79553D] font-mono font-bold whitespace-nowrap">{{ item.minPrice }}</strong>
+              </div>
+              <div class="flex justify-between items-center whitespace-nowrap gap-1">
+                <span class="text-[#79553D] font-medium whitespace-nowrap">专属优惠码:</span>
+                <code class="bg-[#EBDCCB] px-1.5 py-0.5 rounded font-bold text-[#493A30] font-mono whitespace-nowrap">{{ item.promoCode }}</code>
+              </div>
             </div>
-            <p class="text-xs text-[#493A30] leading-snug line-clamp-2">{{ item.sellingPoints }}</p>
+            <p class="text-xs text-[#493A30] leading-relaxed line-clamp-2">{{ item.sellingPoints }}</p>
           </div>
 
-          <div class="pt-2 mt-2 border-t border-[#E4D8C7] space-y-1.5">
+          <div class="pt-2.5 mt-2.5 border-t border-[#E4D8C7] space-y-1.5">
             <a
               :href="item.inviteUrl"
               target="_blank"
               rel="sponsored nofollow noopener"
-              class="w-full py-1.5 px-2 rounded bg-[#79553D] hover:bg-[#5C3E2A] text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-1 shadow-xs transition-colors"
+              class="w-full py-2 px-3 rounded bg-[#79553D] hover:bg-[#5C3E2A] text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-1.5 shadow-xs transition-colors whitespace-nowrap"
             >
               <span>⚡️ 官网注册</span>
               <span>→</span>
             </a>
-            <NuxtLink :to="`/airport/${item.id}`" class="block text-center text-xs text-[#79553D] hover:underline font-medium">
+            <NuxtLink :to="`/airport/${item.id}`" class="block text-center text-xs text-[#79553D] hover:underline font-bold whitespace-nowrap">
               查阅独立评测 →
             </NuxtLink>
           </div>
@@ -155,56 +163,59 @@
 
     <!-- Section 3: 全网 28 家机场多维对比表 -->
     <section id="section-3" class="space-y-2.5 mt-5">
-      <div class="border-b border-[#E4D8C7] pb-1 flex justify-between items-center">
-        <h2 class="text-base sm:text-lg font-bold text-[#493A30]">
+      <div class="border-b border-[#E4D8C7] pb-1 flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+        <h2 class="text-base sm:text-lg font-bold text-[#493A30] whitespace-nowrap">
           三、全网 28 家机场价格线路多维总表
         </h2>
-        <span class="text-xs text-[#79553D]">支持按需查阅独立报告</span>
+        <span class="text-xs text-[#79553D] flex items-center gap-1 font-medium whitespace-nowrap">
+          <span>👉</span>
+          <span>横向滑动查看全部 7 列参数与独立评测</span>
+        </span>
       </div>
 
-      <div class="overflow-x-auto border border-[#E4D8C7] rounded-custom bg-[#FFFCF5]">
-        <table class="w-full text-xs sm:text-sm text-left border-collapse">
+      <div class="overflow-x-auto border border-[#E4D8C7] rounded-custom bg-[#FFFCF5] shadow-xs">
+        <table class="w-full min-w-[960px] text-xs sm:text-sm text-left border-collapse">
           <thead>
-            <tr class="bg-[#F4ECE1] text-[#79553D] text-xs sm:text-sm font-bold">
-              <th class="p-2.5 sm:p-3 border-b border-[#E4D8C7]">机场名称</th>
-              <th class="p-2.5 sm:p-3 border-b border-[#E4D8C7]">起价/口径</th>
-              <th class="p-2.5 sm:p-3 border-b border-[#E4D8C7]">线路架构</th>
-              <th class="p-2.5 sm:p-3 border-b border-[#E4D8C7]">协议/格式</th>
-              <th class="p-2.5 sm:p-3 border-b border-[#E4D8C7]">业务场景</th>
-              <th class="p-2.5 sm:p-3 border-b border-[#E4D8C7]">专属码</th>
-              <th class="p-2.5 sm:p-3 border-b border-[#E4D8C7]">操作通道</th>
+            <tr class="bg-[#F4ECE1] text-[#79553D] text-xs sm:text-sm font-bold whitespace-nowrap">
+              <th class="p-3 border-b border-[#E4D8C7] whitespace-nowrap">机场名称</th>
+              <th class="p-3 border-b border-[#E4D8C7] whitespace-nowrap">起价/口径</th>
+              <th class="p-3 border-b border-[#E4D8C7] whitespace-nowrap">线路架构</th>
+              <th class="p-3 border-b border-[#E4D8C7] whitespace-nowrap">协议/格式</th>
+              <th class="p-3 border-b border-[#E4D8C7] whitespace-nowrap min-w-[220px]">业务场景</th>
+              <th class="p-3 border-b border-[#E4D8C7] whitespace-nowrap">专属码</th>
+              <th class="p-3 border-b border-[#E4D8C7] whitespace-nowrap text-center">操作通道</th>
             </tr>
           </thead>
           <tbody class="divide-y divide-[#E4D8C7]">
             <tr
               v-for="a in allAirports"
               :key="a.id"
-              class="hover:bg-[#F9F5EC] transition-colors"
+              class="hover:bg-[#F9F5EC] transition-colors whitespace-nowrap"
               :class="a.id === 'quanqiuyun' ? 'bg-[#FFF9F0]' : a.isTop5 ? 'bg-[#FFFDF9]' : ''"
             >
-              <td class="p-2.5 sm:p-3 whitespace-nowrap">
+              <td class="p-3 whitespace-nowrap">
                 <span class="font-mono text-[#79553D] text-xs mr-1 font-bold">{{ a.num }}</span>
                 <NuxtLink :to="`/airport/${a.id}`" class="text-[#493A30] hover:text-[#79553D] font-bold text-xs sm:text-sm hover:underline">
                   {{ a.name }}
                 </NuxtLink>
-                <span v-if="a.id === 'quanqiuyun'" class="ml-1 text-xs bg-[#79553D] text-white px-1.5 py-0.5 rounded font-bold">主推</span>
-                <span v-else-if="a.isTop5" class="ml-1 text-xs bg-[#EBDCCB] text-[#79553D] px-1.5 py-0.5 rounded font-bold">主力</span>
+                <span v-if="a.id === 'quanqiuyun'" class="ml-1 text-xs bg-[#79553D] text-white px-1.5 py-0.5 rounded font-bold whitespace-nowrap">主推</span>
+                <span v-else-if="a.isTop5" class="ml-1 text-xs bg-[#EBDCCB] text-[#79553D] px-1.5 py-0.5 rounded font-bold whitespace-nowrap">主力</span>
               </td>
-              <td class="p-2.5 sm:p-3 whitespace-nowrap">
-                <div class="font-bold text-[#79553D] font-mono text-xs sm:text-sm">{{ a.minPrice }}</div>
-                <div class="text-xs text-[#79553D]/80">{{ a.periodNote }}</div>
+              <td class="p-3 whitespace-nowrap">
+                <div class="font-bold text-[#79553D] font-mono text-xs sm:text-sm whitespace-nowrap">{{ a.minPrice }}</div>
+                <div class="text-xs text-[#79553D]/80 whitespace-nowrap">{{ a.periodNote }}</div>
               </td>
-              <td class="p-2.5 sm:p-3 text-xs text-[#493A30] whitespace-nowrap font-medium">{{ a.lineArch }}</td>
-              <td class="p-2.5 sm:p-3 text-xs text-[#79553D] whitespace-nowrap">{{ a.protocol }}</td>
-              <td class="p-2.5 sm:p-3 text-xs text-[#493A30]">{{ a.audience }}</td>
-              <td class="p-2.5 sm:p-3 whitespace-nowrap">
-                <code class="text-xs bg-[#EBDCCB] px-1.5 py-0.5 rounded font-bold text-[#493A30] font-mono">{{ a.promoCode }}</code>
+              <td class="p-3 text-xs text-[#493A30] whitespace-nowrap font-medium">{{ a.lineArch }}</td>
+              <td class="p-3 text-xs text-[#79553D] whitespace-nowrap">{{ a.protocol }}</td>
+              <td class="p-3 text-xs text-[#493A30] whitespace-nowrap min-w-[220px] font-medium">{{ a.audience }}</td>
+              <td class="p-3 whitespace-nowrap">
+                <code class="text-xs bg-[#EBDCCB] px-1.5 py-0.5 rounded font-bold text-[#493A30] font-mono whitespace-nowrap">{{ a.promoCode }}</code>
               </td>
-              <td class="p-2.5 sm:p-3 whitespace-nowrap">
-                <div class="flex items-center gap-1.5">
+              <td class="p-3 whitespace-nowrap text-center">
+                <div class="flex items-center justify-center gap-1.5 whitespace-nowrap">
                   <NuxtLink
                     :to="`/airport/${a.id}`"
-                    class="px-2 py-1 rounded border border-[#B08758] text-[#79553D] hover:bg-[#F4ECE1] text-xs font-bold transition-colors"
+                    class="px-2.5 py-1 rounded border border-[#B08758] text-[#79553D] hover:bg-[#F4ECE1] text-xs font-bold transition-colors whitespace-nowrap"
                   >
                     评测
                   </NuxtLink>
@@ -212,7 +223,7 @@
                     :href="a.inviteUrl"
                     target="_blank"
                     rel="sponsored nofollow noopener"
-                    class="px-2 py-1 rounded bg-[#79553D] text-white hover:bg-[#5C3E2A] text-xs font-bold transition-colors shadow-2xs"
+                    class="px-2.5 py-1 rounded bg-[#79553D] text-white hover:bg-[#5C3E2A] text-xs font-bold transition-colors shadow-2xs whitespace-nowrap"
                   >
                     注册 →
                   </a>

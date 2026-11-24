@@ -124,30 +124,30 @@
                 :class="a.id === 'quanqiuyun' ? 'ring-2 ring-[#79553D]/30' : ''"
               >
                 <div class="min-w-0 flex-1">
-                  <div class="flex items-center gap-1.5 flex-wrap">
-                    <span class="text-xs font-mono font-bold px-1.5 py-0.5 rounded bg-[#79553D] text-white shrink-0">
+                  <div class="flex items-center gap-1.5 flex-nowrap">
+                    <span class="text-xs font-mono font-bold px-1.5 py-0.5 rounded bg-[#79553D] text-white shrink-0 whitespace-nowrap">
                       主力 {{ a.num }}
                     </span>
                     <NuxtLink
                       :to="'/airport/' + a.id"
-                      class="text-sm sm:text-base font-extrabold text-[#493A30] hover:text-[#79553D] transition-colors truncate"
+                      class="text-sm sm:text-base font-extrabold text-[#493A30] hover:text-[#79553D] transition-colors whitespace-nowrap"
                     >
                       {{ a.name.split('（')[0] }}
                     </NuxtLink>
-                    <span class="text-xs text-[#B08758] font-bold shrink-0">
+                    <span class="text-xs text-[#B08758] font-bold shrink-0 whitespace-nowrap">
                       {{ a.id === 'quanqiuyun' ? '多国出口·主推' : (a.id === 'muguang' ? '晚高峰4K' : (a.id === 'feimaoyun' ? '低价IEPL' : (a.id === 'breezenet' ? '大流量骨干' : '大带宽中转'))) }}
                     </span>
                   </div>
-                  <div class="text-xs text-[#5C4033] mt-1 flex flex-wrap items-center gap-x-2 gap-y-0.5">
-                    <span class="font-bold text-[#79553D]">{{ a.minPrice.split(' ')[0] }}</span>
-                    <span>码: <code class="font-mono font-bold bg-[#EBDCCB] px-1.5 py-0.5 rounded text-[#493A30]">{{ a.promoCode }}</code></span>
+                  <div class="text-xs text-[#5C4033] mt-1 flex items-center gap-x-2 gap-y-0.5 whitespace-nowrap">
+                    <span class="font-bold text-[#79553D] whitespace-nowrap">{{ a.minPrice.split(' ')[0] }}</span>
+                    <span class="whitespace-nowrap">码: <code class="font-mono font-bold bg-[#EBDCCB] px-1.5 py-0.5 rounded text-[#493A30] whitespace-nowrap">{{ a.promoCode }}</code></span>
                   </div>
                 </div>
                 <a
                   :href="a.inviteUrl"
                   target="_blank"
                   rel="sponsored nofollow noopener"
-                  class="px-3 py-1.5 rounded-custom bg-[#79553D] hover:bg-[#5C3E2A] text-white text-xs sm:text-sm font-bold shrink-0 transition-colors shadow-2xs flex items-center gap-0.5"
+                  class="px-3 py-1.5 rounded-custom bg-[#79553D] hover:bg-[#5C3E2A] text-white text-xs sm:text-sm font-bold shrink-0 transition-colors shadow-2xs flex items-center gap-0.5 whitespace-nowrap"
                 >
                   <span>官网注册</span>
                   <span>→</span>
