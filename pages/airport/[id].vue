@@ -6,10 +6,13 @@
         <div>
           <div class="flex items-center gap-2 mb-1">
             <span v-if="review.id === 'quanqiuyun'" class="px-2 py-0.5 rounded text-xs font-bold bg-[#79553D] text-white">
-              🌟 本站主推 · 推广合作
+              🌟 主力 01 · 推广合作
             </span>
-            <span v-else class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-[#79553D] text-white">
-              0{{ review.num }} 主力推荐
+            <span v-else-if="Number(review.num) <= 5" class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-[#79553D] text-white">
+              {{ review.num }} 主力推荐
+            </span>
+            <span v-else class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-[#EBDCCB] text-[#79553D]">
+              No.{{ review.num }} 参评
             </span>
             <span class="px-2 py-0.5 rounded text-xs font-bold bg-[#EBDCCB] text-[#79553D]">
               {{ review.focusType }}

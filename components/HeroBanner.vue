@@ -36,8 +36,7 @@
         <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight sm:leading-snug select-text">
           <span class="bracket-anim-left text-[#B08758] font-serif mr-1 select-none pointer-events-none" aria-hidden="true">【</span>
           <span class="phrase-color-transition font-bold">按平台选择Clash应用</span>
-          <span class="text-[#79553D]">并学会维护</span>
-          <span class="bracket-anim-right text-[#B08758] font-serif ml-1 select-none pointer-events-none" aria-hidden="true">】</span>
+          <span class="inline-block whitespace-nowrap"><span class="text-[#79553D]">并学会维护</span><span class="bracket-anim-right text-[#B08758] font-serif ml-1 select-none pointer-events-none" aria-hidden="true">】</span></span>
         </h1>
 
         <!-- High-CTR & Long-tail Subtitle Description -->

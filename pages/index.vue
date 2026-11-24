@@ -115,11 +115,11 @@
           />
           <ToolCategoryCard
             title="2026好用机场推荐"
-            desc="严格收录 28 家真实机场服务商，重磅区分推荐 4 大主力，全网最全独家优惠码。"
+            desc="严格收录 28 家真实机场服务商，重磅区分推荐 5 大主力，全网最全独家优惠码。"
             link="/airport-recommend"
             icon="✈️"
             :count="28"
-            tag="4大主力"
+            tag="5大主力"
           />
           <ToolCategoryCard
             title="常见问答与站点说明"
@@ -132,7 +132,7 @@
         </div>
       </section>
 
-      <!-- 4. 四大主力机场深度对比与推荐 (Distinguished 4 Main Airports) -->
+      <!-- 4. 五大主力机场深度对比与推荐 (Distinguished 5 Main Airports) -->
       <section>
         <TopAirportsHero />
       </section>

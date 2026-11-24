@@ -22,7 +22,7 @@ export const PAGES: PageMeta[] = [
     title: 'clashapp：按平台选择Clash应用并学会维护｜clashapp',
     description: '围绕选择操作系统、确认应用与安装包、从首次运行到维护，按具体项目、系统与版本提供图解教程、操作实例和验证方法。',
     h1: 'clashapp：按平台选择Clash应用并学会维护',
-    h2s: ['选择操作系统', '确认应用与安装包', '从首次运行到维护', '四大主力机场服务对比与直达', '新手常见配置疑问图解'],
+    h2s: ['选择操作系统', '确认应用与安装包', '从首次运行到维护', '五大主力机场服务对比与直达', '新手常见配置疑问图解'],
     category: '入门与知识',
     shortTitle: 'Clash应用首页',
     keywords: ['clashapp', 'Clash知识', 'Clash教程', '科学上网', 'Clash下载', 'Clash配置', 'Clash机场推荐', '高性价比梯子'],
@@ -368,7 +368,7 @@ export const PAGES: PageMeta[] = [
     nextPage: { title: 'Clash订阅', path: '/subscriptions' },
     featured: true,
     readTime: '9 分钟',
-    summary: '28家精选机场全量测评与参数对比，重点推荐U1S1、极连云、光年梯、光速云四大主力，全网最全优惠码与直达注册链接。'
+    summary: '28家精选机场全量测评与参数对比，重点推荐全球云、暮光加速、飞猫云、微风网络、大佬云五大主力，全网最全优惠码与直达注册链接。'
   },
   {
     path: '/faq',
@@ -581,7 +581,7 @@ export const PAGES: PageMeta[] = [
       'U1S1 优惠码与最新套餐价格',
       'U1S1 支持哪些设备和客户端',
       'U1S1 能解锁 ChatGPT 和 4K 流媒体吗',
-      'U1S1 与四大主力机场横向对比'
+      'U1S1 与五大主力机场横向对比'
     ],
     prevPage: { title: '28家精选机场总览', path: '/airport-recommend' },
     nextPage: { title: '客户端下载', path: '/download' },
@@ -603,7 +603,7 @@ export const PAGES: PageMeta[] = [
       '极连云 优惠码与最新套餐价格',
       '极连云 支持哪些设备和客户端',
       '极连云 能解锁 ChatGPT 和 4K 流媒体吗',
-      '极连云 与四大主力机场横向对比'
+      '极连云 与五大主力机场横向对比'
     ],
     prevPage: { title: '28家精选机场总览', path: '/airport-recommend' },
     nextPage: { title: '客户端下载', path: '/download' },
@@ -625,7 +625,7 @@ export const PAGES: PageMeta[] = [
       '光年梯 优惠码与最新套餐价格',
       '光年梯 支持哪些设备和客户端',
       '光年梯 能解锁 ChatGPT 和 4K 流媒体吗',
-      '光年梯 与四大主力机场横向对比'
+      '光年梯 与五大主力机场横向对比'
     ],
     prevPage: { title: '28家精选机场总览', path: '/airport-recommend' },
     nextPage: { title: '客户端下载', path: '/download' },
@@ -647,7 +647,7 @@ export const PAGES: PageMeta[] = [
       '光速云 优惠码与最新套餐价格',
       '光速云 支持哪些设备和客户端',
       '光速云 能解锁 ChatGPT 和 4K 流媒体吗',
-      '光速云 与四大主力机场横向对比'
+      '光速云 与五大主力机场横向对比'
     ],
     prevPage: { title: '28家精选机场总览', path: '/airport-recommend' },
     nextPage: { title: '客户端下载', path: '/download' },
@@ -669,7 +669,7 @@ export const PAGES: PageMeta[] = [
       '唯兔云 优惠码与最新套餐价格',
       '唯兔云 支持哪些设备和客户端',
       '唯兔云 能解锁 ChatGPT 和 4K 流媒体吗',
-      '唯兔云 与四大主力机场横向对比'
+      '唯兔云 与五大主力机场横向对比'
     ],
     prevPage: { title: '28家精选机场总览', path: '/airport-recommend' },
     nextPage: { title: '客户端下载', path: '/download' },
@@ -691,7 +691,7 @@ export const PAGES: PageMeta[] = [
       '宇宙云 优惠码与最新套餐价格',
       '宇宙云 支持哪些设备和客户端',
       '宇宙云 能解锁 ChatGPT 和 4K 流媒体吗',
-      '宇宙云 与四大主力机场横向对比'
+      '宇宙云 与五大主力机场横向对比'
     ],
     prevPage: { title: '28家精选机场总览', path: '/airport-recommend' },
     nextPage: { title: '客户端下载', path: '/download' },
@@ -713,7 +713,7 @@ export const PAGES: PageMeta[] = [
       '速界 优惠码与最新套餐价格',
       '速界 支持哪些设备和客户端',
       '速界 能解锁 ChatGPT 和 4K 流媒体吗',
-      '速界 与四大主力机场横向对比'
+      '速界 与五大主力机场横向对比'
     ],
     prevPage: { title: '28家精选机场总览', path: '/airport-recommend' },
     nextPage: { title: '客户端下载', path: '/download' },
@@ -735,7 +735,7 @@ export const PAGES: PageMeta[] = [
       'SOGO 云 优惠码与最新套餐价格',
       'SOGO 云 支持哪些设备和客户端',
       'SOGO 云 能解锁 ChatGPT 和 4K 流媒体吗',
-      'SOGO 云 与四大主力机场横向对比'
+      'SOGO 云 与五大主力机场横向对比'
     ],
     prevPage: { title: '28家精选机场总览', path: '/airport-recommend' },
     nextPage: { title: '客户端下载', path: '/download' },
@@ -757,7 +757,7 @@ export const PAGES: PageMeta[] = [
       '快狸 优惠码与最新套餐价格',
       '快狸 支持哪些设备和客户端',
       '快狸 能解锁 ChatGPT 和 4K 流媒体吗',
-      '快狸 与四大主力机场横向对比'
+      '快狸 与五大主力机场横向对比'
     ],
     prevPage: { title: '28家精选机场总览', path: '/airport-recommend' },
     nextPage: { title: '客户端下载', path: '/download' },
@@ -779,7 +779,7 @@ export const PAGES: PageMeta[] = [
       '二猫云 优惠码与最新套餐价格',
       '二猫云 支持哪些设备和客户端',
       '二猫云 能解锁 ChatGPT 和 4K 流媒体吗',
-      '二猫云 与四大主力机场横向对比'
+      '二猫云 与五大主力机场横向对比'
     ],
     prevPage: { title: '28家精选机场总览', path: '/airport-recommend' },
     nextPage: { title: '客户端下载', path: '/download' },
@@ -801,7 +801,7 @@ export const PAGES: PageMeta[] = [
       '一翻云 优惠码与最新套餐价格',
       '一翻云 支持哪些设备和客户端',
       '一翻云 能解锁 ChatGPT 和 4K 流媒体吗',
-      '一翻云 与四大主力机场横向对比'
+      '一翻云 与五大主力机场横向对比'
     ],
     prevPage: { title: '28家精选机场总览', path: '/airport-recommend' },
     nextPage: { title: '客户端下载', path: '/download' },
@@ -823,7 +823,7 @@ export const PAGES: PageMeta[] = [
       '边缘节点（EdgeNova） 优惠码与最新套餐价格',
       '边缘节点（EdgeNova） 支持哪些设备和客户端',
       '边缘节点（EdgeNova） 能解锁 ChatGPT 和 4K 流媒体吗',
-      '边缘节点（EdgeNova） 与四大主力机场横向对比'
+      '边缘节点（EdgeNova） 与五大主力机场横向对比'
     ],
     prevPage: { title: '28家精选机场总览', path: '/airport-recommend' },
     nextPage: { title: '客户端下载', path: '/download' },
@@ -845,7 +845,7 @@ export const PAGES: PageMeta[] = [
       '可信云 优惠码与最新套餐价格',
       '可信云 支持哪些设备和客户端',
       '可信云 能解锁 ChatGPT 和 4K 流媒体吗',
-      '可信云 与四大主力机场横向对比'
+      '可信云 与五大主力机场横向对比'
     ],
     prevPage: { title: '28家精选机场总览', path: '/airport-recommend' },
     nextPage: { title: '客户端下载', path: '/download' },
@@ -867,7 +867,7 @@ export const PAGES: PageMeta[] = [
       '全球云 优惠码与最新套餐价格',
       '全球云 支持哪些设备和客户端',
       '全球云 能解锁 ChatGPT 和 4K 流媒体吗',
-      '全球云 与四大主力机场横向对比'
+      '全球云 与五大主力机场横向对比'
     ],
     prevPage: { title: '28家精选机场总览', path: '/airport-recommend' },
     nextPage: { title: '客户端下载', path: '/download' },
@@ -889,7 +889,7 @@ export const PAGES: PageMeta[] = [
       '飞猫云 优惠码与最新套餐价格',
       '飞猫云 支持哪些设备和客户端',
       '飞猫云 能解锁 ChatGPT 和 4K 流媒体吗',
-      '飞猫云 与四大主力机场横向对比'
+      '飞猫云 与五大主力机场横向对比'
     ],
     prevPage: { title: '28家精选机场总览', path: '/airport-recommend' },
     nextPage: { title: '客户端下载', path: '/download' },
@@ -911,7 +911,7 @@ export const PAGES: PageMeta[] = [
       '暮光加速 优惠码与最新套餐价格',
       '暮光加速 支持哪些设备和客户端',
       '暮光加速 能解锁 ChatGPT 和 4K 流媒体吗',
-      '暮光加速 与四大主力机场横向对比'
+      '暮光加速 与五大主力机场横向对比'
     ],
     prevPage: { title: '28家精选机场总览', path: '/airport-recommend' },
     nextPage: { title: '客户端下载', path: '/download' },
@@ -933,7 +933,7 @@ export const PAGES: PageMeta[] = [
       '浪网（WaveNet） 优惠码与最新套餐价格',
       '浪网（WaveNet） 支持哪些设备和客户端',
       '浪网（WaveNet） 能解锁 ChatGPT 和 4K 流媒体吗',
-      '浪网（WaveNet） 与四大主力机场横向对比'
+      '浪网（WaveNet） 与五大主力机场横向对比'
     ],
     prevPage: { title: '28家精选机场总览', path: '/airport-recommend' },
     nextPage: { title: '客户端下载', path: '/download' },
@@ -955,7 +955,7 @@ export const PAGES: PageMeta[] = [
       '梯子云（LadderCloud） 优惠码与最新套餐价格',
       '梯子云（LadderCloud） 支持哪些设备和客户端',
       '梯子云（LadderCloud） 能解锁 ChatGPT 和 4K 流媒体吗',
-      '梯子云（LadderCloud） 与四大主力机场横向对比'
+      '梯子云（LadderCloud） 与五大主力机场横向对比'
     ],
     prevPage: { title: '28家精选机场总览', path: '/airport-recommend' },
     nextPage: { title: '客户端下载', path: '/download' },
@@ -977,7 +977,7 @@ export const PAGES: PageMeta[] = [
       '灵动云 优惠码与最新套餐价格',
       '灵动云 支持哪些设备和客户端',
       '灵动云 能解锁 ChatGPT 和 4K 流媒体吗',
-      '灵动云 与四大主力机场横向对比'
+      '灵动云 与五大主力机场横向对比'
     ],
     prevPage: { title: '28家精选机场总览', path: '/airport-recommend' },
     nextPage: { title: '客户端下载', path: '/download' },
@@ -999,7 +999,7 @@ export const PAGES: PageMeta[] = [
       '隐形人 优惠码与最新套餐价格',
       '隐形人 支持哪些设备和客户端',
       '隐形人 能解锁 ChatGPT 和 4K 流媒体吗',
-      '隐形人 与四大主力机场横向对比'
+      '隐形人 与五大主力机场横向对比'
     ],
     prevPage: { title: '28家精选机场总览', path: '/airport-recommend' },
     nextPage: { title: '客户端下载', path: '/download' },
@@ -1021,7 +1021,7 @@ export const PAGES: PageMeta[] = [
       'FlyV（飞V） 优惠码与最新套餐价格',
       'FlyV（飞V） 支持哪些设备和客户端',
       'FlyV（飞V） 能解锁 ChatGPT 和 4K 流媒体吗',
-      'FlyV（飞V） 与四大主力机场横向对比'
+      'FlyV（飞V） 与五大主力机场横向对比'
     ],
     prevPage: { title: '28家精选机场总览', path: '/airport-recommend' },
     nextPage: { title: '客户端下载', path: '/download' },
@@ -1043,7 +1043,7 @@ export const PAGES: PageMeta[] = [
       '微风网络（BreezeNet） 优惠码与最新套餐价格',
       '微风网络（BreezeNet） 支持哪些设备和客户端',
       '微风网络（BreezeNet） 能解锁 ChatGPT 和 4K 流媒体吗',
-      '微风网络（BreezeNet） 与四大主力机场横向对比'
+      '微风网络（BreezeNet） 与五大主力机场横向对比'
     ],
     prevPage: { title: '28家精选机场总览', path: '/airport-recommend' },
     nextPage: { title: '客户端下载', path: '/download' },
@@ -1065,7 +1065,7 @@ export const PAGES: PageMeta[] = [
       '无忧链接 优惠码与最新套餐价格',
       '无忧链接 支持哪些设备和客户端',
       '无忧链接 能解锁 ChatGPT 和 4K 流媒体吗',
-      '无忧链接 与四大主力机场横向对比'
+      '无忧链接 与五大主力机场横向对比'
     ],
     prevPage: { title: '28家精选机场总览', path: '/airport-recommend' },
     nextPage: { title: '客户端下载', path: '/download' },
@@ -1087,7 +1087,7 @@ export const PAGES: PageMeta[] = [
       '灵猫网络（Civet） 优惠码与最新套餐价格',
       '灵猫网络（Civet） 支持哪些设备和客户端',
       '灵猫网络（Civet） 能解锁 ChatGPT 和 4K 流媒体吗',
-      '灵猫网络（Civet） 与四大主力机场横向对比'
+      '灵猫网络（Civet） 与五大主力机场横向对比'
     ],
     prevPage: { title: '28家精选机场总览', path: '/airport-recommend' },
     nextPage: { title: '客户端下载', path: '/download' },
@@ -1109,7 +1109,7 @@ export const PAGES: PageMeta[] = [
       '闪跃（FlashLeap） 优惠码与最新套餐价格',
       '闪跃（FlashLeap） 支持哪些设备和客户端',
       '闪跃（FlashLeap） 能解锁 ChatGPT 和 4K 流媒体吗',
-      '闪跃（FlashLeap） 与四大主力机场横向对比'
+      '闪跃（FlashLeap） 与五大主力机场横向对比'
     ],
     prevPage: { title: '28家精选机场总览', path: '/airport-recommend' },
     nextPage: { title: '客户端下载', path: '/download' },
@@ -1131,7 +1131,7 @@ export const PAGES: PageMeta[] = [
       'Firefly 优惠码与最新套餐价格',
       'Firefly 支持哪些设备和客户端',
       'Firefly 能解锁 ChatGPT 和 4K 流媒体吗',
-      'Firefly 与四大主力机场横向对比'
+      'Firefly 与五大主力机场横向对比'
     ],
     prevPage: { title: '28家精选机场总览', path: '/airport-recommend' },
     nextPage: { title: '客户端下载', path: '/download' },
@@ -1153,7 +1153,7 @@ export const PAGES: PageMeta[] = [
       '跨界云 优惠码与最新套餐价格',
       '跨界云 支持哪些设备和客户端',
       '跨界云 能解锁 ChatGPT 和 4K 流媒体吗',
-      '跨界云 与四大主力机场横向对比'
+      '跨界云 与五大主力机场横向对比'
     ],
     prevPage: { title: '28家精选机场总览', path: '/airport-recommend' },
     nextPage: { title: '客户端下载', path: '/download' },
@@ -1175,7 +1175,7 @@ export const PAGES: PageMeta[] = [
       '大佬云 优惠码与最新套餐价格',
       '大佬云 支持哪些设备和客户端',
       '大佬云 能解锁 ChatGPT 和 4K 流媒体吗',
-      '大佬云 与四大主力机场横向对比'
+      '大佬云 与五大主力机场横向对比'
     ],
     prevPage: { title: '28家精选机场总览', path: '/airport-recommend' },
     nextPage: { title: '客户端下载', path: '/download' },

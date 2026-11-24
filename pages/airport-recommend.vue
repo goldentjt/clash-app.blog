@@ -34,19 +34,19 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 text-xs">
         <div class="p-2.5 rounded bg-[#FFFCF5] border border-[#E4D8C7] space-y-0.5">
           <div class="font-bold text-[#79553D]">🔍 偶尔查资料 / 轻度学术</div>
-          <p class="text-[11px] text-[#79553D]">月耗 &lt; 50GB。首推 10-15 元月付或小包（如快狸、可信云），花极少成本保活。</p>
+          <p class="text-[11px] text-[#79553D]">月耗 &lt; 50GB。首推 7-15 元入门小包（如飞猫云、快狸），花极少成本保活。</p>
         </div>
         <div class="p-2.5 rounded bg-[#FFFCF5] border border-[#E4D8C7] space-y-0.5">
           <div class="font-bold text-[#79553D]">🎬 4K/8K 影音 / 高清追剧</div>
-          <p class="text-[11px] text-[#79553D]">月耗 200GB+。首推高带宽中转或专线（如速界、U1S1），晚高峰抗 QoS 不卡顿。</p>
+          <p class="text-[11px] text-[#79553D]">月耗 200GB+。首推大带宽中转或专线（如暮光加速、大佬云），晚高峰抗抖动。</p>
         </div>
         <div class="p-2.5 rounded bg-[#FFFCF5] border border-[#E4D8C7] space-y-0.5">
-          <div class="font-bold text-[#79553D]">🤖 跨境运营 / AI商务防失联</div>
-          <p class="text-[11px] text-[#79553D]">TikTok、ChatGPT 4o、Claude。首推全球云多国矩阵或极连云 IPLC 专线，IP 纯净。</p>
+          <div class="font-bold text-[#79553D]">🤖 跨境运营 / AI商务协作</div>
+          <p class="text-[11px] text-[#79553D]">TikTok、ChatGPT 4o、Claude。首推全球云多国矩阵或微风网络智能隧道。</p>
         </div>
         <div class="p-2.5 rounded bg-[#FFFCF5] border border-[#E4D8C7] space-y-0.5">
           <div class="font-bold text-[#79553D]">📦 长期备用 / 拒绝月度清零</div>
-          <p class="text-[11px] text-[#79553D]">平时用量少，用时需大流量。首推不限时流量包（如极连云、U1S1、全球云一次性包）。</p>
+          <p class="text-[11px] text-[#79553D]">平时用量少，用时需大流量。首推不限时按量包（如全球云一次性包、梯子云）。</p>
         </div>
       </div>
     </section>
@@ -102,49 +102,50 @@
       </div>
     </section>
 
-    <!-- Section 2: 四大核心主力机场定位区分 -->
+    <!-- Section 2: 五大核心主力机场定位区分 -->
     <section id="section-2" class="space-y-2 mt-5">
       <div class="flex items-center justify-between border-b border-[#E4D8C7] pb-1">
         <h2 class="text-base sm:text-lg font-bold text-[#493A30]">
-          二、四大主力机场差异化定位与直达通道
+          二、五大主力机场差异化定位与直达通道
         </h2>
         <span class="text-xs text-[#79553D]">各具特色 · 避免盲目选型</span>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 text-xs">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 text-xs">
         <div
-          v-for="item in top4Airports"
+          v-for="item in top5Airports"
           :key="item.id"
-          class="p-3 rounded-custom bg-[#FFFCF5] border-2 border-[#79553D] flex flex-col justify-between shadow-xs"
+          class="p-2.5 rounded-custom bg-[#FFFCF5] border-2 border-[#79553D] flex flex-col justify-between shadow-xs"
+          :class="item.id === 'quanqiuyun' ? 'ring-2 ring-[#79553D]/40' : ''"
         >
           <div class="space-y-1">
             <div class="flex items-center justify-between">
               <span class="text-[9px] font-mono font-bold px-1.5 py-0.2 rounded bg-[#79553D] text-white">0{{ item.num }} 主力</span>
               <span class="text-[10px] font-bold text-[#B08758]">{{ item.tag }}</span>
             </div>
-            <h3 class="text-sm font-extrabold text-[#493A30]">
+            <h3 class="text-xs sm:text-sm font-extrabold text-[#493A30]">
               <NuxtLink :to="`/airport/${item.id}`" class="hover:underline">
                 {{ item.name }}
               </NuxtLink>
             </h3>
-            <div class="bg-[#F9F5EC] p-1.5 rounded border border-[#E4D8C7] text-[10px] space-y-0.5">
+            <div class="bg-[#F9F5EC] p-1 rounded border border-[#E4D8C7] text-[10px] space-y-0.5">
               <div class="flex justify-between"><span>真实起价:</span><strong class="text-[#79553D] font-mono">{{ item.minPrice }}</strong></div>
               <div class="flex justify-between items-center"><span>专属码:</span><code class="bg-[#EBDCCB] px-1 rounded font-bold text-[#493A30]">{{ item.promoCode }}</code></div>
             </div>
-            <p class="text-[11px] text-[#493A30] leading-snug">{{ item.sellingPoints }}</p>
+            <p class="text-[10px] text-[#493A30] leading-snug line-clamp-2">{{ item.sellingPoints }}</p>
           </div>
 
-          <div class="pt-2 mt-1.5 border-t border-[#E4D8C7] space-y-1">
+          <div class="pt-1.5 mt-1 border-t border-[#E4D8C7] space-y-1">
             <a
               :href="item.inviteUrl"
               target="_blank"
               rel="sponsored nofollow noopener"
-              class="w-full py-1.5 px-2 rounded bg-[#79553D] hover:bg-[#5C3E2A] text-white font-bold text-xs flex items-center justify-center gap-1 shadow-xs transition-colors"
+              class="w-full py-1 px-1.5 rounded bg-[#79553D] hover:bg-[#5C3E2A] text-white font-bold text-[10px] flex items-center justify-center gap-0.5 shadow-xs transition-colors"
             >
               <span>⚡️ 官网注册</span>
               <span>→</span>
             </a>
-            <NuxtLink :to="`/airport/${item.id}`" class="block text-center text-[10px] text-[#79553D] hover:underline">
+            <NuxtLink :to="`/airport/${item.id}`" class="block text-center text-[9px] text-[#79553D] hover:underline">
               查阅独立评测 →
             </NuxtLink>
           </div>
@@ -179,7 +180,7 @@
               v-for="a in allAirports"
               :key="a.id"
               class="hover:bg-[#F9F5EC] transition-colors"
-              :class="a.id === 'quanqiuyun' ? 'bg-[#FFF9F0]' : a.isTop4 ? 'bg-[#FFFDF9]' : ''"
+              :class="a.id === 'quanqiuyun' ? 'bg-[#FFF9F0]' : a.isTop5 ? 'bg-[#FFFDF9]' : ''"
             >
               <td class="p-2 whitespace-nowrap">
                 <span class="font-mono text-[#79553D] text-[10px] mr-1">{{ a.num }}</span>
@@ -187,7 +188,7 @@
                   {{ a.name }}
                 </NuxtLink>
                 <span v-if="a.id === 'quanqiuyun'" class="ml-1 text-[9px] bg-[#79553D] text-white px-1 rounded font-bold">主推</span>
-                <span v-else-if="a.isTop4" class="ml-1 text-[9px] bg-[#EBDCCB] text-[#79553D] px-1 rounded">主力</span>
+                <span v-else-if="a.isTop5" class="ml-1 text-[9px] bg-[#EBDCCB] text-[#79553D] px-1 rounded font-bold">主力</span>
               </td>
               <td class="p-2 whitespace-nowrap">
                 <div class="font-bold text-[#79553D] font-mono text-[10px]">{{ a.minPrice }}</div>
@@ -351,12 +352,13 @@ const allAirports = computed(() => {
   })
 })
 
-const top4Airports = computed(() => {
+const top5Airports = computed(() => {
   return [
-    { ...AIRPORTS[0], tag: '稳健自用', sellingPoints: '原生住宅IP解锁，中转优化，适合长期自用免折腾。' },
-    { ...AIRPORTS[1], tag: 'IPLC专线', sellingPoints: '纯正物理内网专线抗封抗QoS，港日延迟30-50ms，敏感期稳。' },
-    { ...AIRPORTS[2], tag: '极简导入', sellingPoints: '客户端一键极速导入，三网智能优化，ChatGPT开箱即用。' },
-    { ...AIRPORTS[3], tag: '即时响应', sellingPoints: 'BGP多线智能入口，低延迟中转，网页秒开，即时通信顺滑。' }
+    { ...AIRPORTS[0], tag: '多国矩阵', sellingPoints: '欧美亚多国出口矩阵，跨境出海首选，8折码 qq88。' },
+    { ...AIRPORTS[1], tag: '晚高峰稳', sellingPoints: '三网大带宽优化，晚高峰稳定低抖动，4K秒开。' },
+    { ...AIRPORTS[2], tag: '低价IEPL', sellingPoints: '低价IEPL专线，香港晚高峰稳，流媒体全解锁。' },
+    { ...AIRPORTS[3], tag: '智能隧道', sellingPoints: '多机房智能隧道互联，低延迟高吞吐，即时通信顺畅。' },
+    { ...AIRPORTS[4], tag: '企业专线', sellingPoints: '物理专线抗QoS拥塞，多设备大并发稳定不掉线。' }
   ]
 })
 </script>

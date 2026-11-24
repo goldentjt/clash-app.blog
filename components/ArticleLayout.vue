@@ -27,11 +27,9 @@
               </div>
             </div>
 
-            <!-- H1 Title with subtle breathing brackets (文章页仅保留页眉中小型括号的缓慢开合) -->
-            <h1 class="text-2xl sm:text-4xl font-extrabold text-[#493A30] tracking-tight leading-tight">
-              <span class="bracket-anim-left text-[#B08758] font-serif mr-1 select-none text-xl sm:text-3xl pointer-events-none" aria-hidden="true">【</span>
-              <span>{{ page.h1 }}</span>
-              <span class="bracket-anim-right text-[#B08758] font-serif ml-1 select-none text-xl sm:text-3xl pointer-events-none" aria-hidden="true">】</span>
+            <!-- H1 Title with subtle breathing brackets (确保文字并行，末尾括号与文字绑定绝不独占单行) -->
+            <h1 class="text-xl sm:text-2xl lg:text-3xl font-extrabold text-[#493A30] tracking-tight leading-snug break-words" style="text-wrap: balance;">
+              <span class="bracket-anim-left text-[#B08758] font-serif mr-0.5 select-none text-lg sm:text-2xl pointer-events-none" aria-hidden="true">【</span><span>{{ page.h1.slice(0, -2) }}</span><span class="inline-block whitespace-nowrap">{{ page.h1.slice(-2) }}<span class="bracket-anim-right text-[#B08758] font-serif ml-0.5 select-none text-lg sm:text-2xl pointer-events-none" aria-hidden="true">】</span></span>
             </h1>
 
             <!-- Summary & Description -->
