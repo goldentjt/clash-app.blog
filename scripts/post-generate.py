@@ -2,7 +2,11 @@
 import glob
 import os
 import re
-from bs4 import BeautifulSoup
+
+try:
+    from bs4 import BeautifulSoup
+except ImportError:
+    BeautifulSoup = None
 
 def main():
     print(">>> Running Post-Generate Optimizer for clash-app.blog...")
@@ -104,35 +108,54 @@ def main():
                     content
                 )
 
-                # Parse HTML for auditing
-                soup = BeautifulSoup(content, 'html.parser')
+                if BeautifulSoup is not None:
+                    # Parse HTML with BeautifulSoup if available
+                    soup = BeautifulSoup(content, 'html.parser')
+                    for a in soup.find_all('a', href=True):
+                        href = a['href']
+                        if href.startswith('http://') or href.startswith('https://'):
+                            if 'clash-app.blog' in href or href.startswith('http://localhost'):
+                                continue
+                            total_external_links += 1
+                            rel = a.get('rel', [])
+                            if isinstance(rel, str):
+                                rel = rel.split()
+                            if not {'sponsored', 'nofollow', 'noopener'}.issubset(set(rel)) or a.get('target') != '_blank':
+                                a['rel'] = 'sponsored nofollow noopener'
+                                a['target'] = '_blank'
+                                invalid_links.append((rel_path, href))
+                    content = str(soup)
 
-                # External links check
-                for a in soup.find_all('a', href=True):
-                    href = a['href']
-                    if href.startswith('http://') or href.startswith('https://'):
-                        if 'clash-app.blog' in href or href.startswith('http://localhost'):
-                            continue
-                        total_external_links += 1
-                        rel = a.get('rel', [])
-                        if isinstance(rel, str):
-                            rel = rel.split()
-                        if not {'sponsored', 'nofollow', 'noopener'}.issubset(set(rel)) or a.get('target') != '_blank':
-                            # Auto-fix in HTML
-                            a['rel'] = 'sponsored nofollow noopener'
-                            a['target'] = '_blank'
-                            invalid_links.append((rel_path, href))
+                    main = soup.find('main') or soup.find('div', class_='flex-1')
+                    if main and '404' not in rel_path and '500' not in rel_path and '200.html' not in rel_path and rel_path != 'index.html':
+                        text = main.get_text()
+                        chinese_and_words = len(re.findall(r'[\u4e00-\u9fa5]|[a-zA-Z0-9]+', text))
+                        if chinese_and_words > 2500:
+                            over_limit_pages.append((rel_path, chinese_and_words))
+                else:
+                    # Pure standard library fallback (zero dependencies)
+                    def fix_link(match):
+                        nonlocal total_external_links
+                        full_tag = match.group(0)
+                        href = match.group(1)
+                        if href.startswith('http://') or href.startswith('https://'):
+                            if 'clash-app.blog' in href or href.startswith('http://localhost'):
+                                return full_tag
+                            total_external_links += 1
+                            tag_clean = re.sub(r'\s*rel=["\'][^"\']*["\']', '', full_tag)
+                            tag_clean = re.sub(r'\s*target=["\'][^"\']*["\']', '', tag_clean)
+                            return tag_clean[:-1] + ' rel="sponsored nofollow noopener" target="_blank">'
+                        return full_tag
 
-                # Update content if soup modified links
-                content = str(soup)
+                    content = re.sub(r'<a\s+[^>]*href=["\']([^"\']+)["\'][^>]*>', fix_link, content)
 
-                # Check character count for article content
-                main = soup.find('main') or soup.find('div', class_='flex-1')
-                if main and '404' not in rel_path and '500' not in rel_path and '200.html' not in rel_path and rel_path != 'index.html':
-                    text = main.get_text()
-                    chinese_and_words = len(re.findall(r'[\u4e00-\u9fa5]|[a-zA-Z0-9]+', text))
-                    if chinese_and_words > 2500:
-                        over_limit_pages.append((rel_path, chinese_and_words))
+                    # Simple text check
+                    m_main = re.search(r'<main[\s\S]*?<\/main>', content)
+                    if m_main and '404' not in rel_path and '500' not in rel_path and '200.html' not in rel_path and rel_path != 'index.html':
+                        clean_text = re.sub(r'<[^>]+>', '', m_main.group(0))
+                        chinese_and_words = len(re.findall(r'[\u4e00-\u9fa5]|[a-zA-Z0-9]+', clean_text))
+                        if chinese_and_words > 2500:
+                            over_limit_pages.append((rel_path, chinese_and_words))
 
                 with open(p, 'w', encoding='utf-8') as f:
                     f.write(content)
