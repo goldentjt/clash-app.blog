@@ -1,0 +1,88 @@
+<template>
+  <div class="space-y-4 my-8">
+    <div
+      v-for="(faq, idx) in faqItems"
+      :key="idx"
+      class="p-5 rounded-custom bg-[#FFFCF5] border border-[#E4D8C7] shadow-sm space-y-2.5 transition-all"
+    >
+      <!-- Question Title (H3 semantic) -->
+      <div class="flex items-start gap-3">
+        <span class="w-6 h-6 rounded-full bg-[#79553D] text-white flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">
+          Q
+        </span>
+        <h3 class="text-base font-bold text-[#493A30] leading-snug">
+          {{ faq.q }}
+        </h3>
+      </div>
+
+      <!-- Answer Content - ALWAYS EXPANDED BY DEFAULT ("所有的FAQ全部要展开") -->
+      <div class="pl-9 text-xs sm:text-sm text-[#493A30] leading-relaxed border-t border-[#E4D8C7]/50 pt-2.5 space-y-2">
+        <p>{{ faq.a }}</p>
+        <div v-if="faq.details" class="p-3 bg-[#F4ECE1] rounded-custom border border-[#E4D8C7] text-xs text-[#79553D] space-y-1">
+          <div class="font-bold text-[#493A30]">实操与核验步骤：</div>
+          <p>{{ faq.details }}</p>
+        </div>
+        <div v-if="faq.link" class="pt-1">
+          <NuxtLink :to="faq.link.path" class="text-xs font-bold text-[#79553D] hover:underline inline-flex items-center gap-1">
+            <span>深入阅读完整教程：{{ faq.link.title }}</span>
+            <span>→</span>
+          </NuxtLink>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script setup lang="ts">
+interface FaqItem {
+  q: string
+  a: string
+  details?: string
+  link?: { title: string; path: string }
+}
+
+const props = withDefaults(defineProps<{
+  items?: FaqItem[]
+}>(), {
+  items: () => [
+    {
+      q: '同一个安装包适合所有设备吗？',
+      a: '不能混用。Clash 应用在不同系统（Windows、macOS、Android、iOS、Linux）以及不同 CPU 架构（x86_64、ARM64、Apple Silicon M 系列）下的二进制包完全不同。例如 Windows 下使用 .exe 安装包，Mac M1/M2/M3 使用 aarch64.dmg，安卓手机使用 .apk，iOS 则需在 App Store 获取 Shadowrocket 或 Stash。',
+      details: '下载前请先核对本机的操作系统版本与处理器架构，避免因架构不匹配导致闪退或打不开。',
+      link: { title: 'Clash下载：按系统与架构匹配安装包', path: '/download' }
+    },
+    {
+      q: '客户端版本和核心版本在哪里看？',
+      a: 'Clash 客户端（如 Clash Verge Rev、Clash for Windows）与内部运行的代理核心（如 Mihomo / Clash Meta、开源内核）属于两个独立层级。在 Clash Verge Rev 中，可点击左侧「设置」或右下角状态栏查看：界面通常标有如 App: v1.7.7，Core: Mihomo v1.18.x。',
+      details: '了解核心版本非常关键，因为新版 VLESS、Reality、Hysteria2 协议需要 Meta 核心达到特定版本才能正常解析并连接。',
+      link: { title: 'Clash Meta与应用：怎样核对内置核心', path: '/meta-core' }
+    },
+    {
+      q: '更新前应该保存哪些东西？',
+      a: '更新应用前，务必备份本地配置文件目录（包含 profiles 文件夹、config.yaml 以及自定义的扩展脚本规则）。尤其注意不要将私人订阅链接与 Token 泄露到公共代码仓库或截图中。',
+      details: '通常备份用户的 profiles 目录即可，如遇新版本覆盖出错，直接将 profiles 文件夹还原回原目录即可快速恢复原样。',
+      link: { title: 'Clash配置管理：导入、保存与迁移', path: '/profiles' }
+    },
+    {
+      q: '换应用是否要重新买服务？',
+      a: '完全不需要！机场节点服务与客户端应用是解耦的。只要你购买的机场支持通用 Clash YAML 订阅链接或通用订阅转换，在换用 Clash Verge、Clash for Android 或 Shadowrocket 时，只需要复制相同的订阅链接重新导入即可，流量与到期时间保持一致。',
+      details: '核对已有服务的订阅格式、授权和设备数限制即可，目标应用只要支持该协议就能直接承载。',
+      link: { title: 'Clash机场推荐：匹配你的应用版本和订阅格式', path: '/airport-recommend' }
+    },
+    {
+      q: '镜像和用户下载入口怎么标？',
+      a: '按实际分发身份与真实来源展示，严格记录文件项目出处、校验 Hash 与版本状态。本站不将自身域名冒充为开发方，所有第三方安装包若未完成多重病毒安全扫描前均标明「待验证」或「下载地址待提供」，确保用户知情权。',
+      details: '优先推荐从 GitHub 官方 Releases 仓库直接获取，防范包含挖矿木马或键盘记录器的假冒官网安装包。',
+      link: { title: 'Clash官网项目：从项目到分发资料', path: '/projects' }
+    },
+    {
+      q: '卸载前怎样处理代理设置？',
+      a: '卸载前最重要的一步是：必须先进入应用主界面，手动关闭「系统代理（System Proxy）」和「TUN 模式」，并确认系统网络设置中的代理服务器已被清空（关闭 127.0.0.1:7890）。若直接强制卸载，系统残留代理开关会导致电脑彻底无法访问网页。',
+      details: '若已误卸载导致断网，可打开 Windows「网络和 Internet」→「代理」，将「使用代理服务器」开关关闭并保存即可立刻恢复上网。',
+      link: { title: 'Clash应用系统代理：启动、开机与退出怎样管理', path: '/system-proxy' }
+    }
+  ]
+})
+
+const faqItems = computed(() => props.items)
+</script>

@@ -1,0 +1,119 @@
+<template>
+  <ArticleLayout :page="pageMeta">
+    <!-- Intro Box -->
+    <div class="p-4 rounded-custom bg-[#F4ECE1] border border-[#B08758]/50 text-xs text-[#79553D] leading-relaxed">
+      <strong>核心任务与验证口径：</strong> 本文针对 <strong>Clash应用规则设置：界面选项对应什么</strong> 进行全流程图解与实操复盘。正文涵盖具体配置步骤、预期结果判定与异常恢复方案，所有涉及第三方服务的链接均严格添加 <code>rel="sponsored nofollow noopener"</code>，确保合规透明。
+    </div>
+
+    <!-- Section 1 -->
+    <section id="section-1" class="space-y-4">
+      <h2 class="text-xl sm:text-2xl font-bold text-[#493A30] border-b border-[#E4D8C7] pb-2">
+        1. 确认运行模式
+      </h2>
+      <p class="text-xs sm:text-sm text-[#493A30] leading-relaxed">
+        Clash 区别于传统全局 VPN 的最大优势就在于「基于规则的智能分流（Rule-based Routing）」。当你打开一个网页时，Clash 会根据域名后缀、IP 归属地、端口号甚至发起请求的应用程序名称，在毫秒级时间内判断该流量是应该「走代理（Proxy）」、「直连（Direct）」还是「拦截（Reject）」。
+      </p>
+    </section>
+
+    <!-- Section 2 -->
+    <section id="section-2" class="space-y-4">
+      <h2 class="text-xl sm:text-2xl font-bold text-[#493A30] border-b border-[#E4D8C7] pb-2">
+        2. 查看有效规则
+      </h2>
+      <p class="text-xs sm:text-sm text-[#493A30] leading-relaxed">
+        在客户端界面顶部，通常有三个核心模式可供切换：
+1. **Rule（规则模式，强烈推荐日常使用）：** 按照规则集分流，访问海外被墙网站走节点，访问百度、微信、网易云等国内服务完全直连，不耗费机场流量且速度最快；
+2. **Global（全局模式）：** 本机所有网络请求无论目标为何均强制走选定的代理节点（访问国内网站可能会变慢或显示海外 IP）；
+3. **Direct（直接连接模式）：** 所有流量完全不走代理，相当于直接裸连互联网。
+      </p>
+
+      <!-- Embedded Diagram Viewer (Animations 2, 3, 7, 10) -->
+      <DiagramViewer
+        title="Clash Rule 模式流量判定与分流路线图解"
+        appState="已就绪 - 规则配置正常"
+        calloutHint="规则匹配链条：命中海外走向节点，命中国内直连"
+        :steps="diagramSteps"
+      />
+    </section>
+
+    <!-- Section 3 -->
+    <section id="section-3" class="space-y-4">
+      <h2 class="text-xl sm:text-2xl font-bold text-[#493A30] border-b border-[#E4D8C7] pb-2">
+        3. 更改与验证
+      </h2>
+      <p class="text-xs sm:text-sm text-[#493A30] leading-relaxed">
+        在高级配置中，规则由上至下匹配，遵循「先匹配先执行」原则。例如一条 <code>DOMAIN-SUFFIX,google.com,PROXIES</code> 命中后就会立即走代理，最后一条通常为 <code>MATCH,PROXIES</code> 或 <code>MATCH,DIRECT</code> 承接未被匹配到的兜底流量。
+      </p>
+
+      <TipNote title="为什么访问某些国内小众网站也走了代理？">
+        <p>这是由于机场配置自带的 GEOIP 数据库未收录该冷门国内域名的 CDN 节点，导致流量落入了末尾的 MATCH 兜底规则。解决方法是在客户端配置覆写中，为该域名添加一条 `DOMAIN-SUFFIX,example.cn,DIRECT` 强制直连即可。</p>
+      </TipNote>
+    </section>
+
+    <!-- Section 4: Checklist (Animation 8) -->
+    <section id="section-4" class="space-y-4">
+      <h3 class="text-lg font-bold text-[#493A30] border-b border-[#E4D8C7] pb-2">
+        本机完成任务后的检查项
+      </h3>
+      <Checklist
+        title="Clash应用规则设置：界面选项对应什么 - 实施自检清单"
+        :items="checklistItems"
+      />
+    </section>
+
+    
+  </ArticleLayout>
+</template>
+
+<script setup lang="ts">
+import { PAGES } from '~/data/pages'
+
+const pageMeta = PAGES.find(p => p.path === '/routing')!
+
+useHead({
+  title: pageMeta.title,
+  meta: [
+    { name: 'description', content: pageMeta.description },
+    { name: 'keywords', content: pageMeta.keywords.join(', ') }
+  ],
+  link: [
+    { rel: 'canonical', href: `https://clash-app.blog${pageMeta.path}` }
+  ]
+})
+
+const diagramSteps = [
+  {
+    "num": 1,
+    "title": "检查当前运行模式是否处于 Rule",
+    "desc": "在主界面确认分流模式选项勾选为「Rule / 规则」，杜绝误开全局模式导致国内流量消耗。"
+  },
+  {
+    "num": 2,
+    "title": "查看连接面板（Connections）的实际走向",
+    "desc": "在侧边栏「连接」实时查看当前发起网络请求的进程名、目标域名与命中的具体规则。"
+  },
+  {
+    "num": 3,
+    "title": "添加自定义分流覆写规则",
+    "desc": "若希望特定学术网站强制走代理，可在个性化配置文件中添加 prepend-rules 规则。"
+  }
+]
+const checklistItems = [
+  {
+    "text": "日常使用始终保持在「Rule (规则模式)」，确保国内网络完全直连无延迟",
+    "tip": "全局模式仅在特定排障或外服联机时临时开启"
+  },
+  {
+    "text": "在连接面板能看到中国大陆 IP 命中 DIRECT 规则",
+    "tip": "访问 国内 IP 归属地显示本地真实网络"
+  },
+  {
+    "text": "清楚规则的先后顺序：先域名精确匹配，再 GEOIP 判定，最后 MATCH 兜底",
+    "tip": "避免把宽泛规则写在最前面导致误拦截"
+  },
+  {
+    "text": "修改自定义规则前保留原始 YAML 的完整副本",
+    "tip": "方便修改语法错误时快速还原"
+  }
+]
+</script>

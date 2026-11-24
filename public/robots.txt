@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://clash-app.blog/sitemap.xml

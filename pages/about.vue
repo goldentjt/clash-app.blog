@@ -1,0 +1,116 @@
+<template>
+  <ArticleLayout :page="pageMeta">
+    <!-- Intro Box -->
+    <div class="p-4 rounded-custom bg-[#F4ECE1] border border-[#B08758]/50 text-xs text-[#79553D] leading-relaxed">
+      <strong>核心任务与验证口径：</strong> 本文针对 <strong>关于clashapp：下载资料、教程和更新维护</strong> 进行全流程图解与实操复盘。正文涵盖具体配置步骤、预期结果判定与异常恢复方案，所有涉及第三方服务的链接均严格添加 <code>rel="sponsored nofollow noopener"</code>，确保合规透明。
+    </div>
+
+    <!-- Section 1 -->
+    <section id="section-1" class="space-y-4">
+      <h2 class="text-xl sm:text-2xl font-bold text-[#493A30] border-b border-[#E4D8C7] pb-2">
+        1. 登记与核验下载资料
+      </h2>
+      <p class="text-xs sm:text-sm text-[#493A30] leading-relaxed">
+        欢迎访问 clashapp·图解课堂（唯一官方访问域名：https://clash-app.blog）。本站致力于构建一个客观、专业、不弄虚作假的中文 Clash 知识图谱。我们围绕应用从获取、安装、首次运行到迁移、更新和卸载的完整生命周期组织内容，提供高质量的图解与可复现的操作步骤。
+      </p>
+    </section>
+
+    <!-- Section 2 -->
+    <section id="section-2" class="space-y-4">
+      <h2 class="text-xl sm:text-2xl font-bold text-[#493A30] border-b border-[#E4D8C7] pb-2">
+        2. 联系纠错
+      </h2>
+      <p class="text-xs sm:text-sm text-[#493A30] leading-relaxed">
+        【登记与核验下载资料】本站不是任何开源项目的官方开发者或核心维护团队，我们绝不将本站名义冒充为官方身份。本站展示的所有客户端版本信息、架构说明与 Hash 校验值均忠实取自开源上游仓库。未经验证的第三方链接均明确保持「下载地址待提供」状态，正文与教程依然保持完整独立可读。
+      </p>
+
+      <!-- Embedded Diagram Viewer (Animations 2, 3, 7, 10) -->
+      <DiagramViewer
+        title="clashapp·图解课堂 运营与技术中立性架构图"
+        appState="已就绪 - 规则配置正常"
+        calloutHint="知识优先、真实核验与透明商业合作标准"
+        :steps="diagramSteps"
+      />
+    </section>
+
+    <!-- Section 3 -->
+    <section id="section-3" class="space-y-4">
+      <h2 class="text-xl sm:text-2xl font-bold text-[#493A30] border-b border-[#E4D8C7] pb-2">
+        3. 隐私和商业关系
+      </h2>
+      <p class="text-xs sm:text-sm text-[#493A30] leading-relaxed">
+        【隐私与商业关系披露】本站严格尊重每一位访客的隐私，不收集任何用户私人网络日志，不安装任何侵入式追踪脚本。本站的机场推荐属于公开的商业服务入口，我们坚持实测实录，所有跳转至第三方机场网站的推广与邀请链接，均一律明确标记 `rel="sponsored nofollow noopener"` 与 `target="_blank"`，既保障本站权重的纯净，也充分保障读者的知情权与选择权。
+      </p>
+
+      <TipNote title="联系与勘误渠道说明">
+        <p>如果您在阅读过程中发现某项技术参数发生变化，或某个客户端新版调整了界面布局，欢迎发送邮件至反馈邮箱进行指正。我们将在核验后第一时间更新知识库。</p>
+      </TipNote>
+    </section>
+
+    <!-- Section 4: Checklist (Animation 8) -->
+    <section id="section-4" class="space-y-4">
+      <h3 class="text-lg font-bold text-[#493A30] border-b border-[#E4D8C7] pb-2">
+        本机完成任务后的检查项
+      </h3>
+      <Checklist
+        title="关于clashapp：下载资料、教程和更新维护 - 实施自检清单"
+        :items="checklistItems"
+      />
+    </section>
+
+    
+  </ArticleLayout>
+</template>
+
+<script setup lang="ts">
+import { PAGES } from '~/data/pages'
+
+const pageMeta = PAGES.find(p => p.path === '/about')!
+
+useHead({
+  title: pageMeta.title,
+  meta: [
+    { name: 'description', content: pageMeta.description },
+    { name: 'keywords', content: pageMeta.keywords.join(', ') }
+  ],
+  link: [
+    { rel: 'canonical', href: `https://clash-app.blog${pageMeta.path}` }
+  ]
+})
+
+const diagramSteps = [
+  {
+    "num": 1,
+    "title": "真实客观的内容编撰体系",
+    "desc": "所有图解步骤均在真实 Windows、Mac、Android 设备上测试截图并制作标注。"
+  },
+  {
+    "num": 2,
+    "title": "透明规范的第三方合作",
+    "desc": "合作机场必须具备真实专线、稳定技术团队与良好口碑，杜绝跑路跑包黑心平台。"
+  },
+  {
+    "num": 3,
+    "title": "开放的社区勘误与反馈渠道",
+    "desc": "设立清晰的反馈渠道，欢迎各界开发者与用户对陈旧知识点提出修改指正。"
+  }
+]
+const checklistItems = [
+  {
+    "text": "认准官方唯一访问域名：https://clash-app.blog",
+    "tip": "防范假冒克隆与钓鱼站点"
+  },
+  {
+    "text": "理解本站的技术传播者定位，不冒充开源项目开发者",
+    "tip": "致敬开源社区与内核开发者"
+  },
+  {
+    "text": "理解推荐链接挂载的 rel=\"sponsored nofollow noopener\" 属性",
+    "tip": "符合 Google 搜索规范与网络伦理"
+  },
+  {
+    "text": "遇到失效教程可随时向站长邮箱发送反馈建议",
+    "tip": "保持教程版本与时俱进"
+  }
+]
+</script>
