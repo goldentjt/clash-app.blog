@@ -9,9 +9,9 @@
           </span>
           <span class="text-xs text-[#B08758] font-bold">2026年11月核实</span>
         </div>
-        <h1 class="text-xl sm:text-2xl font-extrabold text-[#493A30] tracking-tight">
+        <div class="text-xl sm:text-2xl font-extrabold text-[#493A30] tracking-tight">
           Clash 机场服务选型与横评对比：28家多维横评与避坑指南
-        </h1>
+        </div>
         <p class="text-xs text-[#79553D] leading-relaxed">
           Clash 客户端必须配合优质节点订阅（YAML 格式）才能稳定访问海外网络。本页依据公开套餐、协议规范与实机核查，按需对比，帮您找到网络稳定、预算匹配的节点方案。
         </p>
@@ -34,19 +34,70 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 text-xs">
         <div class="p-2.5 rounded bg-[#FFFCF5] border border-[#E4D8C7] space-y-0.5">
           <div class="font-bold text-[#79553D]">🔍 偶尔查资料 / 轻度学术</div>
-          <p class="text-[11px] text-[#79553D]">月耗 &lt; 50GB。首推 10-15 元月付或百元年付小包（如快狸、可信云），花极少成本保活。</p>
+          <p class="text-[11px] text-[#79553D]">月耗 &lt; 50GB。首推 10-15 元月付或小包（如快狸、可信云），花极少成本保活。</p>
         </div>
         <div class="p-2.5 rounded bg-[#FFFCF5] border border-[#E4D8C7] space-y-0.5">
           <div class="font-bold text-[#79553D]">🎬 4K/8K 影音 / 高清追剧</div>
-          <p class="text-[11px] text-[#79553D]">月耗 200GB+。首推高带宽 IPLC 或中转大户（如速界、U1S1），晚高峰抗 QoS 不卡顿。</p>
+          <p class="text-[11px] text-[#79553D]">月耗 200GB+。首推高带宽中转或专线（如速界、U1S1），晚高峰抗 QoS 不卡顿。</p>
         </div>
         <div class="p-2.5 rounded bg-[#FFFCF5] border border-[#E4D8C7] space-y-0.5">
-          <div class="font-bold text-[#79553D]">🤖 科研AI交互 / 商务防失联</div>
-          <p class="text-[11px] text-[#79553D]">ChatGPT 4o、Claude 3.5、Zoom。首推物理 IPLC 专线与原生住宅 IP（如极连云、U1S1），延时 30-50ms。</p>
+          <div class="font-bold text-[#79553D]">🤖 跨境运营 / AI商务防失联</div>
+          <p class="text-[11px] text-[#79553D]">TikTok、ChatGPT 4o、Claude。首推全球云多国矩阵或极连云 IPLC 专线，IP 纯净。</p>
         </div>
         <div class="p-2.5 rounded bg-[#FFFCF5] border border-[#E4D8C7] space-y-0.5">
           <div class="font-bold text-[#79553D]">📦 长期备用 / 拒绝月度清零</div>
-          <p class="text-[11px] text-[#79553D]">平时用量少，用时需大流量。首推不限时流量包（如极连云 399元/1000G、U1S1 580元/1000G、梯子云）。</p>
+          <p class="text-[11px] text-[#79553D]">平时用量少，用时需大流量。首推不限时流量包（如极连云、U1S1、全球云一次性包）。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 本站主推 · 推广合作专区：全球云 (Featured Partner) -->
+    <section id="featured-partner" class="space-y-2 mt-5">
+      <div class="p-3.5 sm:p-4 rounded-custom bg-[#FFFDF9] border-2 border-[#79553D] shadow-warm space-y-2.5">
+        <div class="flex flex-wrap items-center justify-between gap-2 border-b border-[#E4D8C7] pb-2">
+          <div class="flex items-center gap-2">
+            <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-[#79553D] text-white">
+              🌟 本站主推 · 推广合作
+            </span>
+            <span class="text-sm font-extrabold text-[#493A30]">全球云 (Global Cloud)</span>
+          </div>
+          <div class="text-xs text-[#79553D]">
+            专属8折优惠码：<code class="bg-[#EBDCCB] px-1.5 py-0.5 rounded font-mono font-bold text-[#493A30]">qq88</code>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs">
+          <div class="p-2 rounded bg-[#F9F5EC] border border-[#E4D8C7] space-y-0.5">
+            <div class="font-bold text-[#79553D]">真实资费架构</div>
+            <p class="text-[11px] text-[#493A30]">轻量版 20元/月(折后16元·120G)；进阶版 40元/月(折后32元·300G)；尊享大户 180元/月(1500G)；轻量年付 99元起；独享专线 680元/月。</p>
+          </div>
+          <div class="p-2 rounded bg-[#F9F5EC] border border-[#E4D8C7] space-y-0.5">
+            <div class="font-bold text-[#79553D]">线路架构与协议格式</div>
+            <p class="text-[11px] text-[#493A30]">港/日/美/新/英/德多国出口矩阵，BGP智能中转优化；支持 Shadowsocks/Trojan 协议，一键导出 Clash YAML 订阅。</p>
+          </div>
+          <div class="p-2 rounded bg-[#F9F5EC] border border-[#E4D8C7] space-y-0.5">
+            <div class="font-bold text-[#79553D]">核心业务定位</div>
+            <p class="text-[11px] text-[#493A30]">跨境电商后台、TikTok海外运营、ChatGPT/Claude多国IP调度；提供在线客服与工单快速支持。</p>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-between gap-2 pt-1 border-t border-[#E4D8C7]/60">
+          <div class="text-[11px] text-[#79553D]">
+            透明提示：商业推广合作项目，资费真实核验，建议新手先选月付测试。
+          </div>
+          <div class="flex items-center gap-2">
+            <NuxtLink to="/airport/quanqiuyun" class="text-xs text-[#79553D] hover:underline font-medium">
+              查看全球云独立评测 →
+            </NuxtLink>
+            <a
+              href="https://hueue09.gcvipaff.com/#/?code=z8U9aaa4"
+              target="_blank"
+              rel="sponsored nofollow noopener"
+              class="px-3 py-1 rounded bg-[#79553D] hover:bg-[#5C3E2A] text-white text-xs font-bold transition-colors shadow-xs"
+            >
+              ⚡️ 直达全球云官网 (享8折) →
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -114,10 +165,11 @@
         <table class="w-full text-xs text-left border-collapse">
           <thead>
             <tr class="bg-[#F4ECE1] text-[#79553D]">
-              <th class="p-2 border-b border-[#E4D8C7]">机场</th>
+              <th class="p-2 border-b border-[#E4D8C7]">机场名称</th>
               <th class="p-2 border-b border-[#E4D8C7]">起价/口径</th>
-              <th class="p-2 border-b border-[#E4D8C7]">线路与协议</th>
-              <th class="p-2 border-b border-[#E4D8C7]">适用场景</th>
+              <th class="p-2 border-b border-[#E4D8C7]">线路架构</th>
+              <th class="p-2 border-b border-[#E4D8C7]">协议/格式</th>
+              <th class="p-2 border-b border-[#E4D8C7]">业务场景</th>
               <th class="p-2 border-b border-[#E4D8C7]">专属码</th>
               <th class="p-2 border-b border-[#E4D8C7]">操作通道</th>
             </tr>
@@ -127,21 +179,23 @@
               v-for="a in allAirports"
               :key="a.id"
               class="hover:bg-[#F9F5EC] transition-colors"
-              :class="a.isTop4 ? 'bg-[#FFFDF9]' : ''"
+              :class="a.id === 'quanqiuyun' ? 'bg-[#FFF9F0]' : a.isTop4 ? 'bg-[#FFFDF9]' : ''"
             >
               <td class="p-2 whitespace-nowrap">
                 <span class="font-mono text-[#79553D] text-[10px] mr-1">{{ a.num }}</span>
                 <NuxtLink :to="`/airport/${a.id}`" class="text-[#493A30] hover:text-[#79553D] font-bold hover:underline">
                   {{ a.name }}
                 </NuxtLink>
-                <span v-if="a.isTop4" class="ml-1 text-[9px] bg-[#EBDCCB] text-[#79553D] px-1 rounded">主力</span>
+                <span v-if="a.id === 'quanqiuyun'" class="ml-1 text-[9px] bg-[#79553D] text-white px-1 rounded font-bold">主推</span>
+                <span v-else-if="a.isTop4" class="ml-1 text-[9px] bg-[#EBDCCB] text-[#79553D] px-1 rounded">主力</span>
               </td>
               <td class="p-2 whitespace-nowrap">
                 <div class="font-bold text-[#79553D] font-mono text-[10px]">{{ a.minPrice }}</div>
                 <div class="text-[9px] text-[#79553D]/80">{{ a.periodNote }}</div>
               </td>
-              <td class="p-2 text-[10px] text-[#493A30]">{{ a.nodeStatus }}</td>
-              <td class="p-2 text-[10px] text-[#79553D]">{{ a.targetAudience }}</td>
+              <td class="p-2 text-[10px] text-[#493A30] whitespace-nowrap font-medium">{{ a.lineArch }}</td>
+              <td class="p-2 text-[10px] text-[#79553D] whitespace-nowrap">{{ a.protocol }}</td>
+              <td class="p-2 text-[10px] text-[#493A30]">{{ a.audience }}</td>
               <td class="p-2 whitespace-nowrap">
                 <code class="text-[9px] bg-[#EBDCCB] px-1 py-0.2 rounded font-bold text-[#493A30] font-mono">{{ a.promoCode }}</code>
               </td>
@@ -238,21 +292,21 @@
         <div class="p-3 rounded bg-[#FFFCF5] border border-[#E4D8C7] space-y-0.5">
           <h3 class="font-bold text-sm text-[#493A30]">Q4：节点全红连接超时怎么办？</h3>
           <p class="text-[11px] text-[#79553D] leading-relaxed">
-            答：先查本机系统时间误差是否在 60 秒内（时间误差会导致 TLS 握手失败）；再右键更新订阅；若仍不通可参考本站
-            <NuxtLink to="/app-errors" class="text-[#B08758] underline font-bold">《Clash 无法连接故障排查表》</NuxtLink>。
+            答：先查本机系统时钟是否开启自动同步（时钟偏差会导致 TLS 证书校验失败）；再右键更新订阅；排查见
+            <NuxtLink to="/app-errors" class="text-[#B08758] underline font-bold">《故障排查表》</NuxtLink>。
           </p>
         </div>
       </div>
     </section>
 
     <!-- Section 6: 更新记录 -->
-    <section id="section-6" class="space-y-1.5 mt-5">
-      <h2 class="text-sm font-bold text-[#493A30] border-b border-[#E4D8C7] pb-1">
+    <section id="section-6" class="space-y-1 mt-5">
+      <h2 class="text-xs font-bold text-[#493A30] border-b border-[#E4D8C7] pb-0.5">
         六、更新记录与核查历史
       </h2>
-      <div class="p-2.5 rounded bg-[#FFFCF5] border border-[#E4D8C7] text-[11px] text-[#79553D] space-y-1">
-        <div><strong>2026-11-24：</strong>存量内容审查：核实 28 家价格口径（区分常规月付与年付折算），添加商业关系披露与决策树。</div>
-        <div><strong>2026-11-23：</strong>上线 28 家机场独立评测专刊链接与优惠码核验。</div>
+      <div class="p-2 rounded bg-[#FFFCF5] border border-[#E4D8C7] text-[10px] text-[#79553D] space-y-0.5">
+        <div><strong>2026-11-24：</strong>存量内容审查：核实 28 家价格口径，新增全球云主推合作专区与架构解耦。</div>
+        <div><strong>2026-11-23：</strong>上线 28 家独立评测专刊链接与优惠码核验。</div>
       </div>
     </section>
   </ArticleLayout>
@@ -279,13 +333,21 @@ useHead({
 const allAirports = computed(() => {
   return AIRPORTS.map(a => {
     let periodNote = '常规月付'
-    if (a.id === 'feimaoyun') periodNote = '年付折算 (84元/年)'
-    else if (a.id === 'jilianyun') periodNote = '常规月付 / 年付折算'
-    else if (a.id === 'flashleap' || a.id === 'firefly') periodNote = '年付折算 (96元/年)'
+    if (a.id === 'feimaoyun') periodNote = '年付折算(84元)'
+    else if (a.id === 'jilianyun') periodNote = '常规月付/年付'
+    else if (a.id === 'flashleap' || a.id === 'firefly') periodNote = '年付折算(96元)'
     else if (a.id === 'civet') periodNote = '年付85元起'
-    else if (a.id === 'kuajieyun' || a.id === 'dalaoyun') periodNote = '四档阶梯月付'
-    else if (a.id === 'kuaili') periodNote = '活动入门月付'
-    return { ...a, periodNote }
+    else if (a.id === 'kuajieyun' || a.id === 'dalaoyun') periodNote = '阶梯月付'
+    else if (a.id === 'kuaili') periodNote = '入门月付'
+    else if (a.id === 'quanqiuyun') periodNote = '月付(折后16元)'
+
+    let lineArch = a.nodeStatus.includes('IPLC') ? 'IPLC专线' :
+                   a.nodeStatus.includes('IEPL') ? 'IEPL专线' :
+                   a.nodeStatus.includes('多国') ? '多国BGP' :
+                   a.nodeStatus.includes('BGP') ? 'BGP中转' : '优化隧道'
+    let protocol = 'SS/Trojan'
+    let audience = a.targetAudience.replace(/追求/g, '').replace(/人群/g, '').replace(/用户/g, '').replace(/和/g, '/').trim()
+    return { ...a, periodNote, lineArch, protocol, audience }
   })
 })
 

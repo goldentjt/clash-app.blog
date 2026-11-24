@@ -2,7 +2,7 @@
   <ArticleLayout :page="pageMeta">
     <!-- Intro Box -->
     <div class="p-4 rounded-custom bg-[#F4ECE1] border border-[#B08758]/50 text-xs text-[#79553D] leading-relaxed">
-      <strong>核心任务与验证口径：</strong> 本文针对 <strong>Clash应用无法连接：从安装状态到运行记录</strong> 进行全流程图解与实操复盘。正文涵盖具体配置步骤、预期结果判定与异常恢复方案，所有涉及第三方服务的链接均严格添加 <code>rel="sponsored nofollow noopener"</code>，确保合规透明。
+      <strong>核心任务与验证口径：</strong> 本文针对 <strong>Clash应用无法连接：从安装状态到运行记录</strong> 进行全流程图解与实操复盘。正文涵盖具体配置步骤、预期结果判定与异常恢复方案，开源软件遵循 nofollow/noopener 规范，商业推广入口遵循 sponsored 规范，确保合规透明。
     </div>
 
     <!-- Section 1 -->
@@ -21,7 +21,7 @@
         2. 核对有效配置
       </h2>
       <p class="text-xs sm:text-sm text-[#493A30] leading-relaxed">
-        排查第一步是确认内核与端口状态：进入任务管理器，确认 `mihomo.exe` 或 `clash-meta` 核心进程正在运行，且本地 7890 端口未被其他下载工具或旧代理残余占用；第二步是确认系统代理开关是否生效；第三步是查看日志面板（Logs），如果日志中大量出现 `handshake failed: certificate has expired`，100% 是系统时间未同步；如果出现 `connect: connection refused`，则是节点服务器离线。
+        排查第一步是确认内核与端口状态：进入任务管理器，确认 <code>mihomo.exe</code> 或 <code>clash-meta</code> 核心进程正在运行，且本地 7890 端口未被其他下载工具或旧代理残余占用；第二步是确认系统代理开关是否生效；第三步是查看日志面板（Logs），如果日志中出现 <code>handshake failed: certificate has expired</code> 或时间窗口告警，通常是本地系统时钟存在偏差或未开启自动网络授时；如果出现 <code>connect: connection refused</code>，则多为目标节点离线或本地防火墙拦截。
       </p>
 
       <!-- Embedded Diagram Viewer (Animations 2, 3, 7, 10) -->
@@ -84,8 +84,8 @@ useHead({
 const diagramSteps = [
   {
     "num": 1,
-    "title": "检查系统时间是否精准同步",
-    "desc": "打开系统时钟设置执行立即同步，时间误差不能超过 60 秒，化解 90% 的 SSL/TLS 证书握手失败。"
+    "title": "核对系统时钟与网络时间同步",
+    "desc": "进入系统日期与时间设置执行在线对齐，排除因本地时钟严重偏移导致的 SSL/TLS 证书有效性校验失败。"
   },
   {
     "num": 2,

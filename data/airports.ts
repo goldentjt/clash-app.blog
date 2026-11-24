@@ -12,6 +12,7 @@ export interface Airport {
   aiUnlock: string[]
   targetAudience: string
   isTop4: boolean
+  isFeaturedPartner?: boolean
   badge?: string
 }
 
@@ -221,14 +222,16 @@ export const AIRPORTS: Airport[] = [
     name: '全球云',
     inviteUrl: 'https://hueue09.gcvipaff.com/#/?code=z8U9aaa4',
     promoCode: 'qq88',
-    promoDiscount: '全场8折(兼容qqy88)',
-    minPrice: '20元/月·120G',
-    headline: '多国出口IP矩阵',
-    sellingPoints: '多出口矩阵分流，短视频TikTok与外贸出海利器。',
-    nodeStatus: '多国出口IP矩阵',
+    promoDiscount: '专属8折立减',
+    minPrice: '20元/月·120G (折后16元)',
+    headline: '【本站主推】欧美亚多出口矩阵',
+    sellingPoints: '多国家与地区出口矩阵调度，结账输入专属优惠码 qq88 享 8 折，适合跨境出海与多国 IP 切换。',
+    nodeStatus: '多国出口BGP/中转',
     aiUnlock: ['TikTok全球', 'ChatGPT 4o', 'Amazon后台'],
-    targetAudience: '外贸卖家与TikTok团队',
-    isTop4: false
+    targetAudience: '跨境电商 / 短视频团队 / 多地区需求',
+    isTop4: false,
+    isFeaturedPartner: true,
+    badge: '🌟 本站主推 · 推广合作'
   },
   {
     id: 'feimaoyun',

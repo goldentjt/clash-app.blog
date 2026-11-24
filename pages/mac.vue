@@ -2,7 +2,7 @@
   <ArticleLayout :page="pageMeta">
     <!-- Intro Box -->
     <div class="p-4 rounded-custom bg-[#F4ECE1] border border-[#B08758]/50 text-xs text-[#79553D] leading-relaxed">
-      <strong>核心任务与验证口径：</strong> 本文针对 <strong>Clash Mac下载与使用：架构、应用与迁移</strong> 进行全流程图解与实操复盘。正文涵盖具体配置步骤、预期结果判定与异常恢复方案，所有涉及第三方服务的链接均严格添加 <code>rel="sponsored nofollow noopener"</code>，确保合规透明。
+      <strong>核心任务与验证口径：</strong> 本文针对 <strong>Clash Mac下载与使用：架构、应用与迁移</strong> 进行全流程图解与实操复盘。正文涵盖具体配置步骤、预期结果判定与异常恢复方案，开源客户端下载遵循 nofollow/noopener 规范，商业推广入口遵循 sponsored 规范，确保合规透明。
     </div>
 
     <!-- Section 1 -->
@@ -11,7 +11,7 @@
         1. 核对Intel或Apple架构与下载通道
       </h2>
       <p class="text-xs sm:text-sm text-[#493A30] leading-relaxed">
-        macOS 请根据芯片严格区分架构：M系列芯片选 <code>aarch64.dmg</code>，老款Intel选 <code>x64.dmg</code>。收录自官方 Releases 与国内高速镜像（外链均带 <code>rel="sponsored nofollow noopener"</code>）：
+        macOS 请根据芯片严格区分架构（终端执行 <code>uname -m</code> 核对）：Apple Silicon 芯片选 <code>aarch64.dmg</code>，老款 Intel 芯片选 <code>x64.dmg</code>。收录自官方 Releases 与国内高速镜像：
       </p>
 
       <!-- Mac Download Grid -->
@@ -26,7 +26,7 @@
             <a
               href="https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.5.5/Clash.Verge_2.5.5_aarch64.dmg"
               target="_blank"
-              rel="sponsored nofollow noopener"
+              rel="nofollow noopener"
               class="px-2.5 py-1 rounded bg-[#79553D] text-white text-[11px] font-bold hover:bg-[#5C3E2A] shadow-xs"
             >
               官方原版下载
@@ -34,7 +34,7 @@
             <a
               href="https://ghfast.top/https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.5.5/Clash.Verge_2.5.5_aarch64.dmg"
               target="_blank"
-              rel="sponsored nofollow noopener"
+              rel="nofollow noopener"
               class="px-2 py-1 rounded bg-[#EBDCCB] text-[#79553D] text-[11px] font-medium hover:bg-[#E4D8C7] shadow-xs"
             >
               镜像加速
@@ -52,7 +52,7 @@
             <a
               href="https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.5.5/Clash.Verge_2.5.5_x64.dmg"
               target="_blank"
-              rel="sponsored nofollow noopener"
+              rel="nofollow noopener"
               class="px-2.5 py-1 rounded bg-[#79553D] text-white text-[11px] font-bold hover:bg-[#5C3E2A] shadow-xs"
             >
               官方原版下载
@@ -60,7 +60,7 @@
             <a
               href="https://ghfast.top/https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.5.5/Clash.Verge_2.5.5_x64.dmg"
               target="_blank"
-              rel="sponsored nofollow noopener"
+              rel="nofollow noopener"
               class="px-2 py-1 rounded bg-[#EBDCCB] text-[#79553D] text-[11px] font-medium hover:bg-[#E4D8C7] shadow-xs"
             >
               镜像加速
@@ -78,7 +78,7 @@
             <a
               href="https://github.com/chen08209/FlClash/releases/download/v0.8.98/FlClash-0.8.98-macos-arm64.dmg"
               target="_blank"
-              rel="sponsored nofollow noopener"
+              rel="nofollow noopener"
               class="px-2.5 py-1 rounded bg-[#79553D] text-white text-[11px] font-bold hover:bg-[#5C3E2A] shadow-xs"
             >
               官方原版下载
@@ -86,7 +86,7 @@
             <a
               href="https://ghfast.top/https://github.com/chen08209/FlClash/releases/download/v0.8.98/FlClash-0.8.98-macos-arm64.dmg"
               target="_blank"
-              rel="sponsored nofollow noopener"
+              rel="nofollow noopener"
               class="px-2 py-1 rounded bg-[#EBDCCB] text-[#79553D] text-[11px] font-medium hover:bg-[#E4D8C7] shadow-xs"
             >
               镜像加速

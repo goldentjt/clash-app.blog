@@ -2,7 +2,7 @@
   <ArticleLayout :page="pageMeta">
     <!-- Intro Box -->
     <div class="p-4 rounded-custom bg-[#F4ECE1] border border-[#B08758]/50 text-xs text-[#79553D] leading-relaxed">
-      <strong>核心任务与验证口径：</strong> 本文针对 <strong>Clash应用系统代理：启动、开机与退出怎样管理</strong> 进行全流程图解与实操复盘。正文涵盖具体配置步骤、预期结果判定与异常恢复方案，所有涉及第三方服务的链接均严格添加 <code>rel="sponsored nofollow noopener"</code>，确保合规透明。
+      <strong>核心任务与验证口径：</strong> 本文针对 <strong>Clash应用系统代理：启动、开机、退出与网络残留排查</strong> 进行全流程图解与实操复盘。正文涵盖系统代理机制、异常断电导致的代理死锁恢复与全平台网络残留排查命令，开源软件遵循 nofollow/noopener 规范，商业推广入口遵循 sponsored 规范，确保合规透明。
     </div>
 
     <!-- Section 1 -->
@@ -11,7 +11,7 @@
         1. 系统设置与应用范围
       </h2>
       <p class="text-xs sm:text-sm text-[#493A30] leading-relaxed">
-        「系统代理（System Proxy）」是几乎所有代理客户端最核心、最日常的接入模式。当你点击开启 Clash 的系统代理时，软件并不会侵入你的网络硬件，而是通过调用操作系统的标准系统 API，向系统的网络代理协议栈登记一个本地代理服务器地址（通常为 `127.0.0.1:7890`）。
+        「系统代理（System Proxy）」是几乎所有代理客户端最日常的接入模式。当你点击开启 Clash 的系统代理时，软件并不会侵入你的网络硬件，而是通过调用操作系统的标准网络配置 API，向系统的网络代理协议栈登记一个本地代理服务器地址（默认通常为 <code>127.0.0.1:7897</code> 或 <code>7890</code>）。
       </p>
     </section>
 
@@ -21,7 +21,7 @@
         2. 启动后的验证
       </h2>
       <p class="text-xs sm:text-sm text-[#493A30] leading-relaxed">
-        系统代理的**作用范围**主要覆盖遵循操作系统通用代理规范的应用程序，包括：Chrome、Edge、Safari、Firefox（默认跟随系统）等主流浏览器，以及大部分桌面办公软件。但必须清楚其边界：命令行（cmd/Terminal）、部分未适配系统代理的特定外服游戏客户端、以及底层 UDP 数据包，默认并不会走系统代理，这类流量需交由 TUN 模式接管。
+        系统代理的**作用范围**主要覆盖遵循操作系统通用代理规范的应用程序，包括 Chrome、Edge、Safari、Firefox 等浏览器及常用办公软件。但必须清楚其边界：命令行（cmd/Terminal）、未适配系统代理的外服游戏客户端以及底层 UDP 数据包，默认不会走系统代理，需要开启 TUN 模式由虚拟网卡全局接管。
       </p>
 
       <!-- Embedded Diagram Viewer (Animations 2, 3, 7, 10) -->
@@ -33,19 +33,41 @@
       />
     </section>
 
-    <!-- Section 3 -->
+    <!-- Section 3: 卸载或停用后网络残留排查 -->
     <section id="section-3" class="space-y-4">
       <h2 class="text-xl sm:text-2xl font-bold text-[#493A30] border-b border-[#E4D8C7] pb-2">
-        3. 退出与残留恢复
+        3. 停用或卸载后的网络残留检查与全平台急救
       </h2>
-      <p class="text-xs sm:text-sm text-[#493A30] leading-relaxed">
-        系统代理最大的潜在风险发生在**「非正常退出」**场景下：如果电脑在开启代理的状态下直接强制关机、拔电源、死机重启，或者 Clash 进程在后台被杀毒软件强制终止，操作系统注册表里的 `ProxyServer = 127.0.0.1:7890` 开关并未被正常注销。开机后由于 Clash 尚未启动，7890 端口无人监听，所有浏览器打开网页都会报错“代理服务器拒绝连接”。掌握残留手动清理是每个使用者的必备基本功。
-      </p>
+      <div class="text-xs sm:text-sm text-[#493A30] leading-relaxed space-y-3">
+        <p>
+          系统代理最大的常见故障发生在**「非正常退出」**或**「直接卸载软件」**场景：在代理开启状态下强杀进程、关机或卸载，操作系统仍保留了指向 <code>127.0.0.1</code> 的代理配置，导致所有浏览器报错“无法连接到代理服务器（ERR_PROXY_CONNECTION_FAILED）”。各平台排查清理步骤：
+        </p>
 
-      <TipNote title="万能急救指令：一行命令重置 Windows 系统代理残留">
-        <p>如果开机后发现所有网页打不开，且不想在设置里翻找，直接按下 `Win + R` 键，输入以下命令并回车，即可瞬间重置并清除所有代理残留：
-`reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings" /v ProxyEnable /t REG_DWORD /d 0 /f`</p>
-      </TipNote>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-xs">
+          <div class="p-2.5 rounded bg-[#FFFCF5] border border-[#E4D8C7] space-y-1.5">
+            <strong class="text-[#79553D]">🪟 Windows 清理方法</strong>
+            <p class="text-[11px] text-[#493A30]">Win + I -> 网络和 Internet -> 代理 -> 确保「使用代理服务器」关闭。</p>
+            <p class="text-[10px] text-[#79553D]">快速急救（Win+R 执行）：</p>
+            <code class="block bg-[#F2EAE1] p-1 rounded text-[10px] text-[#493A30] font-mono break-all">reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings" /v ProxyEnable /t REG_DWORD /d 0 /f</code>
+            <p class="text-[10px] text-[#79553D]">若曾用 TUN 模式：设备管理器 -> 网络适配器 -> 检查是否有残留 Wintun 网卡，如有右键卸载。</p>
+          </div>
+
+          <div class="p-2.5 rounded bg-[#FFFCF5] border border-[#E4D8C7] space-y-1.5">
+            <strong class="text-[#79553D]">🍎 macOS 清理方法</strong>
+            <p class="text-[11px] text-[#493A30]">系统设置 -> 网络 -> Wi-Fi -> 详细信息 -> 代理 -> 取消勾选「网页代理 (HTTP)」与「安全网页代理 (HTTPS)」。</p>
+            <p class="text-[10px] text-[#79553D]">终端一键重置指令：</p>
+            <code class="block bg-[#F2EAE1] p-1 rounded text-[10px] text-[#493A30] font-mono break-all">networksetup -setwebproxystate "Wi-Fi" off && networksetup -setsecurewebproxystate "Wi-Fi" off</code>
+          </div>
+
+          <div class="p-2.5 rounded bg-[#FFFCF5] border border-[#E4D8C7] space-y-1.5">
+            <strong class="text-[#79553D]">💻 终端 Shell 环境变量清理</strong>
+            <p class="text-[11px] text-[#493A30]">若在 bash/zsh 终端执行 curl/git 仍提示连接拒绝，说明 shell 注入了代理变量。</p>
+            <p class="text-[10px] text-[#79553D]">终端直接执行清理：</p>
+            <code class="block bg-[#F2EAE1] p-1 rounded text-[10px] text-[#493A30] font-mono break-all">unset http_proxy https_proxy all_proxy ALL_PROXY</code>
+            <p class="text-[10px] text-[#79553D]">检查 <code>~/.zshrc</code> 或 <code>~/.bashrc</code> 是否有残留 export 语句并删除。</p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Section 4: Checklist (Animation 8) -->

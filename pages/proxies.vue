@@ -2,7 +2,7 @@
   <ArticleLayout :page="pageMeta">
     <!-- Intro Box -->
     <div class="p-4 rounded-custom bg-[#F4ECE1] border border-[#B08758]/50 text-xs text-[#79553D] leading-relaxed">
-      <strong>核心任务与验证口径：</strong> 本文针对 <strong>Clash应用里的节点：选择、检测与恢复</strong> 进行全流程图解与实操复盘。正文涵盖具体配置步骤、预期结果判定与异常恢复方案，所有涉及第三方服务的链接均严格添加 <code>rel="sponsored nofollow noopener"</code>，确保合规透明。
+      <strong>核心任务与验证口径：</strong> 本文针对 <strong>Clash应用里的节点：选择、检测与恢复</strong> 进行全流程图解与实操复盘。正文涵盖具体配置步骤、预期结果判定与异常恢复方案，开源软件与代码项目遵循 nofollow/noopener 规范，商业推广合作遵循 sponsored 规范，确保来源合规透明。
     </div>
 
     <!-- Section 1 -->
@@ -39,7 +39,7 @@
         3. 恢复已知选择
       </h2>
       <p class="text-xs sm:text-sm text-[#493A30] leading-relaxed">
-        当发现某个节点测速显示「Timeout」时，不要慌张。这可能是该节点探测目标超时，或者该节点正在进行零中断热切。若当前正在观看 4K 视频出现缓冲，可直接在策略组中切换至其他绿标节点；在晚高峰期间，推荐优先锁定 IPLC 专线（如极连云专线节点）以确保绝对不丢包。
+        当发现某个节点测速显示「Timeout」时，不要慌张。这可能是特定测试链接（如 Google/Cloudflare）偶发探测超时，或者该节点正进行线路调度。若当前正在观看 4K 视频出现缓冲，可直接在策略组中切换至其他可用节点；在晚高峰骨干网拥塞时，推荐优先选择具备物理链路保障的 IPLC 专线（如极连云专线节点）以降低公网丢包率。
       </p>
 
       <TipNote title="节点测速超时（Timeout）常见排查点">

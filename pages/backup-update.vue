@@ -2,27 +2,58 @@
   <ArticleLayout :page="pageMeta">
     <!-- Intro Box -->
     <div class="p-4 rounded-custom bg-[#F4ECE1] border border-[#B08758]/50 text-xs text-[#79553D] leading-relaxed">
-      <strong>核心任务与验证口径：</strong> 本文针对 <strong>Clash应用更新与备份：怎样迁移并回退</strong> 进行全流程图解与实操复盘。正文涵盖具体配置步骤、预期结果判定与异常恢复方案，所有涉及第三方服务的链接均严格添加 <code>rel="sponsored nofollow noopener"</code>，确保合规透明。
+      <strong>核心任务与验证口径：</strong> 本文针对 <strong>Clash应用更新与备份：怎样迁移并回退</strong> 进行全流程图解与实操复盘。正文涵盖备份绝对路径、升级后三项核验指标与一分钟紧急回退方案，开源软件遵循 nofollow/noopener 规范，商业推广入口遵循 sponsored 规范，确保合规透明。
     </div>
 
     <!-- Section 1 -->
     <section id="section-1" class="space-y-4">
       <h2 class="text-xl sm:text-2xl font-bold text-[#493A30] border-b border-[#E4D8C7] pb-2">
-        1. 保存当前可用资料
+        1. 更新前备份：核心数据存放路径与快照留存
       </h2>
       <p class="text-xs sm:text-sm text-[#493A30] leading-relaxed">
-        许多用户在使用 Clash 时经常陷入两个极端：要么“几年不升级一次，直到某天节点彻底失效才发现内核已严重过时”；要么“看到小红点提示就立刻盲目点击更新，结果新版本配置不兼容导致全盘崩溃无法上网”。建立科学的**应用更新与备份回滚策略**，是保障生产力长期不间断的压舱石。
+        升级客户端前，核心是保留**本地配置快照与订阅凭据**。不同操作系统下配置数据的主目录如下：
       </p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+        <div class="p-3 rounded-custom bg-[#FFFCF5] border border-[#E4D8C7] space-y-1">
+          <div class="font-bold text-[#79553D]">🪟 Windows 备份路径</div>
+          <p class="text-[11px] text-[#493A30]">Win + R 输入并打开：</p>
+          <code class="block bg-[#F2EAE1] p-1.5 rounded text-[11px] text-[#493A30] font-mono break-all">%APPDATA%\clash-verge-rev\profiles</code>
+          <p class="text-[10px] text-[#79553D]">将 <code>profiles</code> 文件夹及同级的 <code>config.yaml</code> 复制到桌面 <code>Clash_Backup</code> 文件夹。</p>
+        </div>
+
+        <div class="p-3 rounded-custom bg-[#FFFCF5] border border-[#E4D8C7] space-y-1">
+          <div class="font-bold text-[#79553D]">🍎 macOS 备份路径</div>
+          <p class="text-[11px] text-[#493A30]">访达快捷键 Cmd + Shift + G 粘贴：</p>
+          <code class="block bg-[#F2EAE1] p-1.5 rounded text-[11px] text-[#493A30] font-mono break-all">~/Library/Application Support/clash-verge-rev/profiles</code>
+          <p class="text-[10px] text-[#79553D]">按住 Option 拖拽 <code>profiles</code> 复制一份归档即可完成快照备份。</p>
+        </div>
+      </div>
     </section>
 
     <!-- Section 2 -->
     <section id="section-2" class="space-y-4">
       <h2 class="text-xl sm:text-2xl font-bold text-[#493A30] border-b border-[#E4D8C7] pb-2">
-        2. 查目标版本兼容
+        2. 更新后验证：三大指标排查新内核兼容性
       </h2>
       <p class="text-xs sm:text-sm text-[#493A30] leading-relaxed">
-        更新前的首要原则是：**「备份永远优先于升级」**。在下载新版本覆盖安装前，花 30 秒将当前能正常工作的 profiles 配置文件夹、自定义 merge 脚本进行本地压缩备份。这样即便新版本存在严重 Bug 或内核崩溃，只需下载旧版安装包重新解压，覆盖回备份文件夹，即可在 1 分钟内无缝回滚至上一稳定状态。
+        覆盖安装新版后，切勿直接最小化，必须依次完成以下 3 项健康核验：
       </p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-xs text-[#493A30]">
+        <div class="p-2.5 rounded bg-[#FFFCF5] border border-[#E4D8C7] space-y-1">
+          <div class="font-bold text-[#79553D]">① 内核与 API 端口监听</div>
+          <p class="text-[11px]">终端运行 <code>netstat -ano | findstr 9097</code> (Win) 或 <code>lsof -i :9097</code> (Mac)，确认内核守护进程正常启动。</p>
+        </div>
+        <div class="p-2.5 rounded bg-[#FFFCF5] border border-[#E4D8C7] space-y-1">
+          <div class="font-bold text-[#79553D]">② 日志语法报错审查</div>
+          <p class="text-[11px]">切换至左侧「Logs / 日志」，过滤 <code>[ERROR]</code>。若出现 <code>yaml: unmarshal errors</code> 说明新内核弃用了旧语法，需右键刷新订阅。</p>
+        </div>
+        <div class="p-2.5 rounded bg-[#FFFCF5] border border-[#E4D8C7] space-y-1">
+          <div class="font-bold text-[#79553D]">③ DNS与出口连通性</div>
+          <p class="text-[11px]">访问海外测试站确认 IP 为节点属地，同时访问国内百度确认直连不被代理挟持，双向分流正常。</p>
+        </div>
+      </div>
 
       <!-- Embedded Diagram Viewer (Animations 2, 3, 7, 10) -->
       <DiagramViewer
@@ -36,15 +67,22 @@
     <!-- Section 3 -->
     <section id="section-3" class="space-y-4">
       <h2 class="text-xl sm:text-2xl font-bold text-[#493A30] border-b border-[#E4D8C7] pb-2">
-        3. 验证和回退
+        3. 紧急回退：新版本异常时的 1 分钟恢复方案
       </h2>
-      <p class="text-xs sm:text-sm text-[#493A30] leading-relaxed">
-        在阅读更新日志（Changelog）时，重点关注带有 `BREAKING CHANGES（破坏性变更）` 标签的内容。例如：内核废弃了某个老旧配置字段，或者调整了默认监听端口。更新完成后，切忌立即关闭终端，应依次执行：1. 测速测试；2. 规则分流测试；3. 系统代理启闭测试，三项全过方可投入正式生产使用。
-      </p>
+      <div class="text-xs sm:text-sm text-[#493A30] leading-relaxed space-y-2">
+        <p>
+          如果更新后出现驱动冲突、无法启动或网络中断：
+        </p>
+        <ol class="list-decimal pl-5 space-y-1 text-[#79553D]">
+          <li><strong>卸载或关闭新版：</strong> 托盘退出应用，若安装了虚拟网卡先关闭 TUN 模式。</li>
+          <li><strong>运行上一个稳定安装包：</strong> 从本地下载目录运行旧版 <code>.exe</code> 或将旧版 <code>.dmg</code> 拖入 Applications 覆盖。</li>
+          <li><strong>还原配置快照：</strong> 将第 1 步备份的 <code>profiles</code> 文件夹拷回原目录，重启旧版客户端即可无缝恢复。</li>
+        </ol>
 
-      <TipNote title="更新后提示「yaml: line XX: did not find expected key」如何修复？">
-        <p>这是典型的旧版 YAML 配置与新版内核规范冲突。解决方法非常简单：不要手动修改报错的行，直接在客户端的「订阅」卡片上右键点击「更新订阅」，机场服务端会立即下发针对新内核规范自动转换后的全新配置文件！</p>
-      </TipNote>
+        <TipNote title="更新后提示「yaml: line XX: did not find expected key」如何修复？">
+          <p>这是典型的旧版 YAML 配置与新版内核规范冲突。解决方法非常简单：不要手动修改报错的行，直接在客户端的「订阅」卡片上右键点击「更新订阅」，机场服务端会立即下发针对新内核规范自动转换后的全新配置文件！</p>
+        </TipNote>
+      </div>
     </section>
 
     <!-- Section 4: Checklist (Animation 8) -->

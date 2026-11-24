@@ -25,6 +25,35 @@
       </NuxtLink>
     </div>
 
+    <!-- 🌟 本站主推 · 推广合作专区 (Featured Partner: 全球云) -->
+    <div class="mb-5 p-3.5 sm:p-4 rounded-custom bg-[#FFFDF9] border-2 border-[#79553D] shadow-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+      <div class="space-y-1">
+        <div class="flex flex-wrap items-center gap-2">
+          <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-[#79553D] text-white">
+            🌟 本站主推 · 推广合作
+          </span>
+          <span class="text-sm font-extrabold text-[#493A30]">全球云 (Global Cloud)</span>
+          <span class="text-xs text-[#B08758] font-bold">欧美亚多国出口矩阵 · 跨境业务首选</span>
+        </div>
+        <p class="text-xs text-[#79553D]">
+          起步价 20元/月 (专属8折码 <code class="bg-[#EBDCCB] px-1 font-bold text-[#493A30]">qq88</code> 后仅 16元/月，120GB) · 港日美新英德全节点 · 支持 Clash / Mihomo 一键导入
+        </p>
+      </div>
+      <div class="flex items-center gap-2 shrink-0">
+        <NuxtLink to="/airport/quanqiuyun" class="text-xs text-[#79553D] hover:underline font-medium">
+          评测详情 →
+        </NuxtLink>
+        <a
+          href="https://hueue09.gcvipaff.com/#/?code=z8U9aaa4"
+          target="_blank"
+          rel="sponsored nofollow noopener"
+          class="px-3 py-1.5 rounded bg-[#79553D] hover:bg-[#5C3E2A] text-white text-xs font-bold transition-colors shadow-xs"
+        >
+          ⚡️ 直达注册 (享8折) →
+        </a>
+      </div>
+    </div>
+
     <!-- 4 Major Airports Grid -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
       <div

@@ -5,7 +5,10 @@
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#E4D8C7] pb-3">
         <div>
           <div class="flex items-center gap-2 mb-1">
-            <span class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-[#79553D] text-white">
+            <span v-if="review.id === 'quanqiuyun'" class="px-2 py-0.5 rounded text-xs font-bold bg-[#79553D] text-white">
+              🌟 本站主推 · 推广合作
+            </span>
+            <span v-else class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-[#79553D] text-white">
               0{{ review.num }} 主力推荐
             </span>
             <span class="px-2 py-0.5 rounded text-xs font-bold bg-[#EBDCCB] text-[#79553D]">
@@ -63,6 +66,14 @@
           <div class="font-bold text-[#B08758] mt-0.5">rel="sponsored" 规范</div>
         </div>
       </div>
+    </div>
+
+    <!-- Commercial Transparency Disclosure for 全球云 -->
+    <div v-if="review.id === 'quanqiuyun'" class="p-3 rounded-custom bg-[#F4ECE1] border-l-4 border-[#79553D] text-xs text-[#493A30] space-y-1">
+      <div class="font-bold text-[#79553D]">📢 商业推广与透明度声明</div>
+      <p class="text-[11px] text-[#79553D] leading-relaxed">
+        全球云为本站重点推荐与商务合作服务商。上方注册链接包含专属 8 折优惠代码（<code>qq88</code>）。评测内容遵循客观中立原则，资费与配置均已核验，已明确标注待进一步核验的事项（如年付重置周期），确保读者透明决策。
+      </p>
     </div>
 
     <!-- 1. 开头先给购买判断 -->

@@ -2,7 +2,7 @@
   <ArticleLayout :page="pageMeta">
     <!-- Intro Notice -->
     <div class="p-3 rounded-custom bg-[#F4ECE1] border border-[#B08758]/50 text-xs text-[#79553D] leading-relaxed">
-      <strong>安全声明与下载准则：</strong>收录各平台官方 Release 原版与国内加速镜像，外链均带 <code>rel="sponsored nofollow noopener"</code>，确保来源透明与安全无捆绑。
+      <strong>安全声明与下载准则：</strong>收录各平台官方 Release 原版与国内加速镜像。开源客户端下载遵循 <code>rel="nofollow noopener"</code> 安全规范，商业推广入口遵循 <code>rel="sponsored"</code>，确保来源透明、纯净且无恶意捆绑。
     </div>
 
     <!-- Section 1: 识别系统和处理器 -->
@@ -11,23 +11,34 @@
         1. 识别系统和处理器：精准匹配 CPU 架构
       </h2>
       <p class="text-xs sm:text-sm text-[#493A30] leading-relaxed">
-        下载客户端前先核对系统与芯片架构，避免因架构错误导致无法打开或闪退：
+        下载客户端前必须精准核对操作系统与 CPU 芯片指令集架构。安装包若与底层芯片不匹配，轻则依赖转译层多耗电量，重则直接提示“无法在此设备上运行”或进程崩溃：
       </p>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-xs">
         <div class="p-3 rounded-custom bg-[#FFFCF5] border border-[#E4D8C7] space-y-1.5">
-          <div class="font-bold text-[#79553D]">🪟 Windows 平台架构判断</div>
-          <ul class="list-disc pl-4 space-y-0.5 text-[#79553D]">
-            <li><strong>x64 处理器：</strong>绝大多数 Intel/AMD 电脑，选 <code class="bg-[#F2EAE1] px-1 rounded">x64-setup.exe</code></li>
-            <li><strong>ARM64 处理器：</strong>骁龙轻薄本与 Surface，选 <code class="bg-[#F2EAE1] px-1 rounded">arm64-setup.exe</code></li>
+          <div class="font-bold text-[#79553D]">🪟 Windows 架构核查</div>
+          <p class="text-[11px] text-[#493A30]">终端命令：<code>echo %PROCESSOR_ARCHITECTURE%</code></p>
+          <ul class="list-disc pl-4 space-y-0.5 text-[#79553D] text-[11px]">
+            <li><strong>x64 (AMD64)：</strong>常规 Intel Core / AMD Ryzen 电脑，必须选 <code>x64-setup.exe</code>。</li>
+            <li><strong>ARM64：</strong>高通骁龙 X Elite、Surface Pro X，必须选 <code>arm64-setup.exe</code> 原生驱动。</li>
           </ul>
         </div>
 
         <div class="p-3 rounded-custom bg-[#FFFCF5] border border-[#E4D8C7] space-y-1.5">
-          <div class="font-bold text-[#79553D]">🍎 macOS 芯片架构区分</div>
-          <ul class="list-disc pl-4 space-y-0.5 text-[#79553D]">
-            <li><strong>Apple 芯片 (M1~M4)：</strong>选 <code class="bg-[#F2EAE1] px-1 rounded">aarch64.dmg</code> 原生运行省电</li>
-            <li><strong>Intel 处理器：</strong>2020年前老款 Mac，选 <code class="bg-[#F2EAE1] px-1 rounded">x64.dmg</code></li>
+          <div class="font-bold text-[#79553D]">🍎 macOS 架构核查</div>
+          <p class="text-[11px] text-[#493A30]">终端命令：<code>uname -m</code></p>
+          <ul class="list-disc pl-4 space-y-0.5 text-[#79553D] text-[11px]">
+            <li><strong>Apple Silicon (M1~M4)：</strong>输出 <code>arm64</code>，必须选 <code>aarch64.dmg</code>，原生运行省电免发热。</li>
+            <li><strong>Intel Mac：</strong>输出 <code>x86_64</code>，选 <code>x64.dmg</code>。误选转译会白白消耗 20% 内存。</li>
+          </ul>
+        </div>
+
+        <div class="p-3 rounded-custom bg-[#FFFCF5] border border-[#E4D8C7] space-y-1.5">
+          <div class="font-bold text-[#79553D]">🐧 Linux / Android 区分</div>
+          <p class="text-[11px] text-[#493A30]">终端命令：<code>uname -m</code></p>
+          <ul class="list-disc pl-4 space-y-0.5 text-[#79553D] text-[11px]">
+            <li><strong>Linux 桌面/服务器：</strong>x86_64 选 <code>amd64.AppImage/deb</code>；树莓派选 <code>arm64</code>。</li>
+            <li><strong>Android 手机/车机：</strong>目前99%以上手机为 <code>arm64-v8a.apk</code>，老设备选 <code>armeabi-v7a</code>。</li>
           </ul>
         </div>
       </div>

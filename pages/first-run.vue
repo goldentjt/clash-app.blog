@@ -15,7 +15,7 @@
       <div class="space-y-2 text-xs">
         <div class="p-3 rounded-custom bg-[#FFFCF5] border border-[#E4D8C7] flex items-start gap-2">
           <span class="font-bold text-[#79553D] shrink-0">① 系统时钟校准：</span>
-          <span class="text-[#493A30]">Clash 连接节点时会进行强加密 TLS 握手。如果本地电脑时间偏差超过 60 秒，会导致所有节点测速全红、网页报证书无效错误。进入系统日期与时间设置，点击「立即同步」。</span>
+          <span class="text-[#493A30]">Clash 连接节点与更新订阅时依赖强加密 TLS 握手。如果本地设备时钟存在较大偏差或时区不匹配，可能导致节点测速报错或提示证书尚未生效/过期。进入系统日期与时间设置，开启自动授时并点击「立即同步」。</span>
         </div>
         <div class="p-3 rounded-custom bg-[#FFFCF5] border border-[#E4D8C7] flex items-start gap-2">
           <span class="font-bold text-[#79553D] shrink-0">② 获取机场订阅 URL：</span>
@@ -44,6 +44,25 @@
           { num: 4, title: '开启系统代理（System Proxy）', desc: '在软件左下角或侧边栏点击开启「System Proxy」开关，此时电脑的网络流量已由 Clash 接管分流。' }
         ]"
       />
+
+      <!-- 三层技术架构图解说明 -->
+      <div class="p-3 rounded-custom bg-[#FFFCF5] border border-[#E4D8C7] space-y-2 text-xs">
+        <h4 class="font-bold text-[#79553D]">💡 运行架构：GUI 界面、配置文件与 Mihomo 内核的关系</h4>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 text-[11px] text-[#493A30]">
+          <div class="p-2 rounded bg-[#F9F5EC] border border-[#E4D8C7] space-y-0.5">
+            <strong class="text-[#79553D]">① 前端图形界面 (GUI)</strong>
+            <p>Clash Verge Rev 负责可视化渲染、托盘常驻与订阅文件拉取，本身不直接处理底层网络转发。</p>
+          </div>
+          <div class="p-2 rounded bg-[#F9F5EC] border border-[#E4D8C7] space-y-0.5">
+            <strong class="text-[#79553D]">② 本地通信总线 (REST API)</strong>
+            <p>前端与内核通过本地端口 <code>127.0.0.1:9097</code> 交互。开关代理或切换节点无需重启进程。</p>
+          </div>
+          <div class="p-2 rounded bg-[#F9F5EC] border border-[#E4D8C7] space-y-0.5">
+            <strong class="text-[#79553D]">③ 运行内核 (Mihomo Core)</strong>
+            <p>后台守护进程。读取 YAML 解析出规则、DNS 与出口节点，接管 TUN 网卡与海外 TLS 流量。</p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Section 3: 确认结果与关闭 -->

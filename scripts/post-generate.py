@@ -117,11 +117,21 @@ def main():
                             if 'clash-app.blog' in href or href.startswith('http://localhost'):
                                 continue
                             total_external_links += 1
+                            
+                            # Distinguish commercial affiliate links vs open-source/reference links
+                            is_affiliate = any(k in href for k in ['vipaff', 'gntaff', 'flycat', 'kuaili', 'lingche', 'hueue09', 'code=']) or 'airport/' in rel_path or rel_path == 'airport-recommend/index.html'
+                            if 'github.com' in href or 'tizilab.cc' in href or not is_affiliate:
+                                expected_rel = {'nofollow', 'noopener'}
+                                rel_str = 'nofollow noopener'
+                            else:
+                                expected_rel = {'sponsored', 'nofollow', 'noopener'}
+                                rel_str = 'sponsored nofollow noopener'
+
                             rel = a.get('rel', [])
                             if isinstance(rel, str):
                                 rel = rel.split()
-                            if not {'sponsored', 'nofollow', 'noopener'}.issubset(set(rel)) or a.get('target') != '_blank':
-                                a['rel'] = 'sponsored nofollow noopener'
+                            if set(rel) != expected_rel or a.get('target') != '_blank':
+                                a['rel'] = rel_str
                                 a['target'] = '_blank'
                                 invalid_links.append((rel_path, href))
                     content = str(soup)
@@ -142,9 +152,13 @@ def main():
                             if 'clash-app.blog' in href or href.startswith('http://localhost'):
                                 return full_tag
                             total_external_links += 1
+                            
+                            is_affiliate = any(k in href for k in ['vipaff', 'gntaff', 'flycat', 'kuaili', 'lingche', 'hueue09', 'code=']) or 'airport/' in rel_path or rel_path == 'airport-recommend/index.html'
+                            rel_str = 'nofollow noopener' if ('github.com' in href or 'tizilab.cc' in href or not is_affiliate) else 'sponsored nofollow noopener'
+
                             tag_clean = re.sub(r'\s*rel=["\'][^"\']*["\']', '', full_tag)
                             tag_clean = re.sub(r'\s*target=["\'][^"\']*["\']', '', tag_clean)
-                            return tag_clean[:-1] + ' rel="sponsored nofollow noopener" target="_blank">'
+                            return tag_clean[:-1] + f' rel="{rel_str}" target="_blank">'
                         return full_tag
 
                     content = re.sub(r'<a\s+[^>]*href=["\']([^"\']+)["\'][^>]*>', fix_link, content)

@@ -2,27 +2,57 @@
   <ArticleLayout :page="pageMeta">
     <!-- Intro Box -->
     <div class="p-4 rounded-custom bg-[#F4ECE1] border border-[#B08758]/50 text-xs text-[#79553D] leading-relaxed">
-      <strong>核心任务与验证口径：</strong> 本文针对 <strong>Clash订阅管理：跨设备添加与刷新</strong> 进行全流程图解与实操复盘。正文涵盖具体配置步骤、预期结果判定与异常恢复方案，所有涉及第三方服务的链接均严格添加 <code>rel="sponsored nofollow noopener"</code>，确保合规透明。
+      <strong>核心任务与验证口径：</strong> 本文针对 <strong>Clash订阅管理：跨设备添加、刷新与配置覆盖机制</strong> 进行全流程图解与实操复盘。正文涵盖跨端导入、订阅覆盖更新与本地自定义规则不被冲掉的解耦方案，开源软件遵循 nofollow/noopener 规范，商业推广入口遵循 sponsored 规范，确保合规透明。
     </div>
 
     <!-- Section 1 -->
     <section id="section-1" class="space-y-4">
       <h2 class="text-xl sm:text-2xl font-bold text-[#493A30] border-b border-[#E4D8C7] pb-2">
-        1. 确认订阅授权
+        1. 确认订阅授权与多端导入
       </h2>
       <p class="text-xs sm:text-sm text-[#493A30] leading-relaxed">
-        订阅链接（Subscription URL）是连接客户端与机场节点服务器的通信纽带。一个标准的 Clash 订阅链接由机场服务商动态生成，内置了鉴权密钥（Token）。客户端向该链接发起 HTTP GET 请求时，服务端会实时返回当前所有可用节点的状态、IP、端口以及预设的分流规则列表。
+        订阅链接（Subscription URL）是连接客户端与机场节点服务器的通信纽带。内置了鉴权密钥（Token），客户端通过 HTTP GET 获取包含最新节点与规则的 YAML 文件。各平台导入方式：
       </p>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-xs text-[#493A30]">
+        <div class="p-2.5 rounded bg-[#FFFCF5] border border-[#E4D8C7] space-y-1">
+          <strong class="text-[#79553D]">💻 桌面端 (Verge Rev)</strong>
+          <p class="text-[11px]">进入「Profiles / 订阅」，粘贴 URL 并点击 Save，建议设置自动更新为 1440 分钟（24小时）。</p>
+        </div>
+        <div class="p-2.5 rounded bg-[#FFFCF5] border border-[#E4D8C7] space-y-1">
+          <strong class="text-[#79553D]">📱 Android (CMFA)</strong>
+          <p class="text-[11px]">点击「配置」-「新配置」-「URL导入」，粘贴链接并点击右上角保存，返回勾选启用。</p>
+        </div>
+        <div class="p-2.5 rounded bg-[#FFFCF5] border border-[#E4D8C7] space-y-1">
+          <strong class="text-[#79553D]">🍎 iOS (小火箭/Stash)</strong>
+          <p class="text-[11px]">选择类型为 Subscribe，粘贴 URL 下载。更新时下拉列表即可同步远端最新节点变动。</p>
+        </div>
+      </div>
     </section>
 
-    <!-- Section 2 -->
+    <!-- Section 2: 核心难点：配置覆盖 vs 本地修改 -->
     <section id="section-2" class="space-y-4">
       <h2 class="text-xl sm:text-2xl font-bold text-[#493A30] border-b border-[#E4D8C7] pb-2">
-        2. 分别导入
+        2. 配置覆盖机制：为什么直接改 YAML 刷新会被冲掉？
       </h2>
-      <p class="text-xs sm:text-sm text-[#493A30] leading-relaxed">
-        跨设备使用订阅时，需注意不同平台的添加机制：Windows/macOS 桌面端支持直接粘贴 URL 并设置「自动更新间隔」（推荐设置为 24 小时或 12 小时一次）；Android 手机端可在 Clash Meta for Android 中新建配置输入 URL；iOS 端则可在 Shadowrocket 或 Stash 中选择「类型: Subscribe」一键拉取。
-      </p>
+      <div class="text-xs sm:text-sm text-[#493A30] leading-relaxed space-y-2">
+        <p>
+          很多新手在订阅的 YAML 文件中手动添加了国内公司内网直连规则，但只要客户端一点击「Update / 刷新订阅」，所有手动修改就会<strong>被远程下发的全新 YAML 彻底覆盖清空</strong>。这是因为订阅更新是全量覆写机制。
+        </p>
+
+        <div class="p-3 rounded-custom bg-[#FFFDF9] border border-[#B08758] space-y-2 text-xs">
+          <div class="font-bold text-[#79553D]">💡 两种推荐解耦方案（修改永久生效）：</div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px]">
+            <div class="p-2 rounded bg-[#F9F5EC] border border-[#E4D8C7] space-y-1">
+              <strong class="text-[#493A30]">方案 A：使用 Script / Merge 扩展配置</strong>
+              <p class="text-[#79553D]">在 Clash Verge Rev 中新建「Merge」或「Script」配置，在 <code>prepend-rules</code> 中写入自定义分流规则。客户端会在每次刷新订阅后动态将自定义规则合并在最前列，永不丢失。</p>
+            </div>
+            <div class="p-2 rounded bg-[#F9F5EC] border border-[#E4D8C7] space-y-1">
+              <strong class="text-[#493A30]">方案 B：本地 Profile + proxy-providers</strong>
+              <p class="text-[#79553D]">新建一个纯本地配置文件，分流规则与 DNS 永久固化在本地；将机场订阅 URL 写在 <code>proxy-providers</code> 中，只让节点列表自动更新，规则与节点彻底解耦。</p>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <!-- Embedded Diagram Viewer (Animations 2, 3, 7, 10) -->
       <DiagramViewer
