@@ -36,58 +36,58 @@
         <div class="space-y-2">
           <!-- Top Badge & Number -->
           <div class="flex items-center justify-between">
-            <span class="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-[#79553D] text-white">
+            <span class="text-xs font-mono font-bold px-2 py-0.5 rounded bg-[#79553D] text-white">
               0{{ item.num }} 主力
             </span>
-            <span class="text-[10px] font-bold text-[#B08758] truncate max-w-[100px]">
+            <span class="text-xs font-bold text-[#B08758] truncate max-w-[120px]">
               {{ item.tag }}
             </span>
           </div>
 
           <!-- Name & Core Positioning -->
           <div>
-            <h3 class="text-sm font-extrabold text-[#493A30]">
+            <h3 class="text-sm sm:text-base font-extrabold text-[#493A30]">
               <NuxtLink :to="`/airport/${item.id}`" class="hover:underline">
                 {{ item.name }}
               </NuxtLink>
             </h3>
-            <p class="text-[10px] font-semibold text-[#79553D] mt-0.5 line-clamp-1">
+            <p class="text-xs font-medium text-[#79553D] mt-0.5 line-clamp-1">
               {{ item.positioning }}
             </p>
           </div>
 
           <!-- Price & Promo -->
-          <div class="p-1.5 rounded bg-[#FFFCF5] border border-[#E4D8C7] text-[10px] space-y-0.5">
+          <div class="p-2 rounded bg-[#FFFCF5] border border-[#E4D8C7] text-xs space-y-1">
             <div class="flex justify-between items-center">
               <span class="text-[#79553D]">起步门槛：</span>
               <span class="font-mono font-bold text-[#79553D]">{{ item.minPrice }}</span>
             </div>
             <div class="flex justify-between items-center">
               <span class="text-[#79553D]">优惠码：</span>
-              <span class="font-mono font-bold text-[#493A30] bg-[#EBDCCB] px-1 rounded">{{ item.promoCode }}</span>
+              <span class="font-mono font-bold text-[#493A30] bg-[#EBDCCB] px-1.5 py-0.2 rounded">{{ item.promoCode }}</span>
             </div>
           </div>
 
           <!-- Distinct Advantage Analysis -->
-          <p class="text-[10px] text-[#493A30] leading-snug line-clamp-2">
+          <p class="text-xs text-[#493A30] leading-snug line-clamp-2">
             {{ item.sellingPoints }}
           </p>
         </div>
 
         <!-- Prominent Registration Button with rel="sponsored nofollow noopener" -->
-        <div class="pt-2 mt-2 border-t border-[#E4D8C7] space-y-1">
+        <div class="pt-2.5 mt-2 border-t border-[#E4D8C7] space-y-1.5">
           <a
             :href="item.inviteUrl"
             target="_blank"
             rel="sponsored nofollow noopener"
-            class="w-full py-1.5 px-2 rounded-custom bg-[#79553D] hover:bg-[#5C3E2A] text-white font-bold text-[10px] flex items-center justify-center gap-0.5 shadow-xs transition-colors"
+            class="w-full py-2 px-2.5 rounded-custom bg-[#79553D] hover:bg-[#5C3E2A] text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-1 shadow-xs transition-colors"
           >
             <span>⚡️ 直达注册</span>
             <span>→</span>
           </a>
           <NuxtLink
             :to="`/airport/${item.id}`"
-            class="block text-center text-[10px] text-[#79553D] hover:underline"
+            class="block text-center text-xs text-[#79553D] hover:underline font-medium"
           >
             查阅独立评测 →
           </NuxtLink>

@@ -81,10 +81,10 @@
         <aside class="lg:col-span-4 space-y-6 sticky top-20">
           <!-- In-Page Table of Contents -->
           <div class="p-5 rounded-custom bg-[#FFFCF5] border border-[#E4D8C7] shadow-sm">
-            <h4 class="text-xs font-bold text-[#79553D] uppercase tracking-wider mb-3 flex items-center gap-2">
+            <h4 class="text-sm font-extrabold text-[#79553D] uppercase tracking-wider mb-3 flex items-center gap-2">
               <span>📑 页面章节导航</span>
             </h4>
-            <ul class="space-y-2 text-xs">
+            <ul class="space-y-2 text-xs sm:text-sm">
               <li v-for="(h2, idx) in page.h2s" :key="idx">
                 <a
                   :href="'#section-' + (idx + 1)"
@@ -94,7 +94,7 @@
                 </a>
               </li>
               <li v-if="page.h3s && page.h3s.length">
-                <div class="mt-2 pt-2 border-t border-[#E4D8C7]/50 text-[11px] text-[#79553D]">
+                <div class="mt-2 pt-2 border-t border-[#E4D8C7]/50 text-xs text-[#79553D]">
                   <span class="font-bold">检查项与故障排查：</span>
                   <div v-for="(h3, i) in page.h3s" :key="i" class="pl-2 py-0.5 text-[#493A30]">
                     • {{ h3 }}
@@ -104,103 +104,60 @@
             </ul>
           </div>
 
-          <!-- Top 4 Airport Recommendation Callout Box -->
-          <div class="p-5 rounded-custom bg-gradient-to-br from-[#FFFCF5] to-[#F9F5EC] border-2 border-[#B08758] shadow-sm space-y-3">
+          <!-- Top 5 Airport Recommendation Callout Box -->
+          <div class="p-5 sm:p-6 rounded-custom bg-gradient-to-br from-[#FFFCF5] to-[#F9F5EC] border-2 border-[#B08758] shadow-sm space-y-3.5">
             <div class="flex items-center justify-between">
-              <span class="text-xs font-bold text-[#79553D] uppercase">🚀 核心专线配套</span>
-              <span class="text-[10px] bg-[#B08758] text-white px-1.5 py-0.2 rounded-full font-bold">4大主力机场</span>
+              <span class="text-xs sm:text-sm font-extrabold text-[#79553D] uppercase tracking-wide">🚀 核心专线配套</span>
+              <span class="text-xs bg-[#B08758] text-white px-2 py-0.5 rounded-full font-bold shadow-2xs">5大主力机场</span>
             </div>
-            <h4 class="text-sm font-bold text-[#493A30]">
-              客户端已就绪？精选 4 大主力机场
+            <h4 class="text-base sm:text-lg font-extrabold text-[#493A30] tracking-tight">
+              客户端已就绪？精选 5 大主力机场
             </h4>
-            <p class="text-xs text-[#79553D] leading-relaxed">
+            <p class="text-xs sm:text-sm text-[#5C4033] leading-relaxed">
               针对不同应用场景严格区分定位，晚高峰 4K 秒开与 ChatGPT 原生解锁：
             </p>
-            <div class="space-y-2 text-xs text-[#493A30]">
-              <!-- 01 U1S1 -->
-              <div class="p-2 rounded bg-white border border-[#E4D8C7] flex items-center justify-between gap-2 shadow-2xs">
-                <div>
-                  <div class="flex items-center gap-1.5">
-                    <span class="text-[9px] font-bold px-1 rounded bg-[#79553D] text-white">主力 01</span>
-                    <strong class="text-xs text-[#493A30]">U1S1</strong>
-                    <span class="text-[9px] text-[#B08758] font-bold">稳健自用</span>
+            <div class="space-y-2.5 text-xs sm:text-sm text-[#493A30]">
+              <div
+                v-for="a in top5Airports"
+                :key="a.id"
+                class="p-2.5 sm:p-3 rounded-custom bg-white border border-[#E4D8C7] hover:border-[#79553D] flex items-center justify-between gap-3 shadow-2xs transition-all"
+                :class="a.id === 'quanqiuyun' ? 'ring-2 ring-[#79553D]/30' : ''"
+              >
+                <div class="min-w-0 flex-1">
+                  <div class="flex items-center gap-1.5 flex-wrap">
+                    <span class="text-xs font-mono font-bold px-1.5 py-0.5 rounded bg-[#79553D] text-white shrink-0">
+                      主力 {{ a.num }}
+                    </span>
+                    <NuxtLink
+                      :to="'/airport/' + a.id"
+                      class="text-sm sm:text-base font-extrabold text-[#493A30] hover:text-[#79553D] transition-colors truncate"
+                    >
+                      {{ a.name.split('（')[0] }}
+                    </NuxtLink>
+                    <span class="text-xs text-[#B08758] font-bold shrink-0">
+                      {{ a.id === 'quanqiuyun' ? '多国出口·主推' : (a.id === 'muguang' ? '晚高峰4K' : (a.id === 'feimaoyun' ? '低价IEPL' : (a.id === 'breezenet' ? '大流量骨干' : '大带宽中转'))) }}
+                    </span>
                   </div>
-                  <div class="text-[10px] text-[#79553D] mt-0.5">原生IP/20元起/码 u1s188</div>
+                  <div class="text-xs text-[#5C4033] mt-1 flex flex-wrap items-center gap-x-2 gap-y-0.5">
+                    <span class="font-bold text-[#79553D]">{{ a.minPrice.split(' ')[0] }}</span>
+                    <span>码: <code class="font-mono font-bold bg-[#EBDCCB] px-1.5 py-0.5 rounded text-[#493A30]">{{ a.promoCode }}</code></span>
+                  </div>
                 </div>
                 <a
-                  href="https://quanqiu.v2yunvipaff.com/#/?code=YCf9VJsS"
+                  :href="a.inviteUrl"
                   target="_blank"
                   rel="sponsored nofollow noopener"
-                  class="px-2.5 py-1 rounded bg-[#79553D] hover:bg-[#5C3E2A] text-white text-[11px] font-bold shrink-0 transition-colors shadow-2xs"
+                  class="px-3 py-1.5 rounded-custom bg-[#79553D] hover:bg-[#5C3E2A] text-white text-xs sm:text-sm font-bold shrink-0 transition-colors shadow-2xs flex items-center gap-0.5"
                 >
-                  官网注册 →
-                </a>
-              </div>
-
-              <!-- 02 极连云 -->
-              <div class="p-2 rounded bg-white border border-[#E4D8C7] flex items-center justify-between gap-2 shadow-2xs">
-                <div>
-                  <div class="flex items-center gap-1.5">
-                    <span class="text-[9px] font-bold px-1 rounded bg-[#79553D] text-white">主力 02</span>
-                    <strong class="text-xs text-[#493A30]">极连云</strong>
-                    <span class="text-[9px] text-[#B08758] font-bold">IPLC专线</span>
-                  </div>
-                  <div class="text-[10px] text-[#79553D] mt-0.5">超低延迟/15.5元起/码 jly88</div>
-                </div>
-                <a
-                  href="https://quanqiu.jlyvipaff.com/#/?code=NplcUEEV"
-                  target="_blank"
-                  rel="sponsored nofollow noopener"
-                  class="px-2.5 py-1 rounded bg-[#79553D] hover:bg-[#5C3E2A] text-white text-[11px] font-bold shrink-0 transition-colors shadow-2xs"
-                >
-                  官网注册 →
-                </a>
-              </div>
-
-              <!-- 03 光年梯 -->
-              <div class="p-2 rounded bg-white border border-[#E4D8C7] flex items-center justify-between gap-2 shadow-2xs">
-                <div>
-                  <div class="flex items-center gap-1.5">
-                    <span class="text-[9px] font-bold px-1 rounded bg-[#79553D] text-white">主力 03</span>
-                    <strong class="text-xs text-[#493A30]">光年梯</strong>
-                    <span class="text-[9px] text-[#B08758] font-bold">极简导入</span>
-                  </div>
-                  <div class="text-[10px] text-[#79553D] mt-0.5">新手一键/18元起/码 gnt88</div>
-                </div>
-                <a
-                  href="https://quanqiu.gntaff.com/#/?code=qUJeOegs"
-                  target="_blank"
-                  rel="sponsored nofollow noopener"
-                  class="px-2.5 py-1 rounded bg-[#79553D] hover:bg-[#5C3E2A] text-white text-[11px] font-bold shrink-0 transition-colors shadow-2xs"
-                >
-                  官网注册 →
-                </a>
-              </div>
-
-              <!-- 04 光速云 -->
-              <div class="p-2 rounded bg-white border border-[#E4D8C7] flex items-center justify-between gap-2 shadow-2xs">
-                <div>
-                  <div class="flex items-center gap-1.5">
-                    <span class="text-[9px] font-bold px-1 rounded bg-[#79553D] text-white">主力 04</span>
-                    <strong class="text-xs text-[#493A30]">光速云</strong>
-                    <span class="text-[9px] text-[#B08758] font-bold">即时响应</span>
-                  </div>
-                  <div class="text-[10px] text-[#79553D] mt-0.5">BGP隧道/17元起/码 gsy88</div>
-                </div>
-                <a
-                  href="https://quanqiu.gsyaff.com/#/?code=AAkbe2W6"
-                  target="_blank"
-                  rel="sponsored nofollow noopener"
-                  class="px-2.5 py-1 rounded bg-[#79553D] hover:bg-[#5C3E2A] text-white text-[11px] font-bold shrink-0 transition-colors shadow-2xs"
-                >
-                  官网注册 →
+                  <span>官网注册</span>
+                  <span>→</span>
                 </a>
               </div>
             </div>
 
             <NuxtLink
               to="/airport-recommend"
-              class="w-full py-2 rounded-custom bg-[#EBDCCB] hover:bg-[#E4D8C7] text-[#79553D] text-xs font-bold flex items-center justify-center gap-1 transition-colors text-center"
+              class="w-full py-2.5 rounded-custom bg-[#EBDCCB] hover:bg-[#E4D8C7] text-[#79553D] text-xs sm:text-sm font-extrabold flex items-center justify-center gap-1 transition-colors text-center shadow-2xs mt-2"
             >
               <span>查看 28 家机场全量对比表与参数</span>
               <span>→</span>
@@ -209,8 +166,8 @@
 
           <!-- Long-Tail Search Index Box -->
           <div class="p-4 rounded-custom bg-[#FFFCF5] border border-[#E4D8C7] text-xs space-y-2">
-            <h5 class="font-bold text-[#493A30] text-[11px]">本页长尾检索意图承接：</h5>
-            <ul class="text-[11px] text-[#79553D] space-y-1 list-disc pl-4">
+            <h5 class="font-bold text-[#493A30] text-xs">本页长尾检索意图承接：</h5>
+            <ul class="text-xs text-[#79553D] space-y-1 list-disc pl-4">
               <li v-for="(lt, i) in page.longTailKeywords" :key="i">
                 {{ lt }}
               </li>
@@ -223,9 +180,13 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
 import type { PageMeta } from '~/data/pages'
+import { AIRPORTS } from '~/data/airports'
 
 defineProps<{
   page: PageMeta
 }>()
+
+const top5Airports = computed(() => AIRPORTS.filter(a => a.isTop5))
 </script>

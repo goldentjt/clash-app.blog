@@ -57,7 +57,7 @@
             to="/airport-recommend"
             class="px-6 py-3 rounded-custom bg-[#FFFCF5] text-[#79553D] font-bold text-sm sm:text-base border-2 border-[#B08758] hover:bg-[#F2EAE1] transition-all shadow-sm flex items-center gap-2"
           >
-            <span>⚡️ 查看 4 大主力机场推荐</span>
+            <span>⚡️ 查看 5 大主力机场推荐</span>
             <span class="text-xs bg-[#B08758] text-white px-2 py-0.5 rounded-full font-normal">低延迟</span>
           </NuxtLink>
         </div>

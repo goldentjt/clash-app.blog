@@ -31,9 +31,9 @@
         <NuxtLink to="/app-errors" class="px-2.5 py-1.5 rounded-custom hover:bg-[#FFFCF5] hover:text-[#79553D] transition-colors" active-class="text-[#79553D] font-bold bg-[#FFFCF5] border border-[#E4D8C7]">
           无法连接排查
         </NuxtLink>
-        <NuxtLink to="/airport-recommend" class="px-3 py-1.5 rounded-custom bg-[#79553D] text-[#FFFCF5] hover:bg-[#5C3E2A] transition-all shadow-sm font-semibold flex items-center gap-1 ml-1">
+        <NuxtLink to="/airport-recommend" class="px-3 py-1.5 rounded-custom bg-[#79553D] text-[#FFFCF5] hover:bg-[#5C3E2A] transition-all shadow-sm font-semibold flex items-center gap-1.5 ml-1">
           <span>🚀 机场推荐</span>
-          <span class="bg-[#B08758] text-[10px] px-1.5 py-0.2 rounded-full text-white">4大主力</span>
+          <span class="bg-[#B08758] text-xs px-2 py-0.5 rounded-full text-white font-bold">5大主力</span>
         </NuxtLink>
       </nav>
 
@@ -125,7 +125,7 @@
           @click="isMobileMenuOpen = false"
           class="w-full py-2.5 rounded-custom bg-[#79553D] text-[#FFFCF5] font-semibold flex items-center justify-center gap-2 text-xs shadow-sm"
         >
-          <span>🚀 2026好用Clash机场推荐 (含4大主力)</span>
+          <span>🚀 2026好用Clash机场推荐 (含5大主力)</span>
         </NuxtLink>
       </div>
     </div>
